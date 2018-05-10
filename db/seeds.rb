@@ -81,12 +81,16 @@ end
         # {flora: {bug: bug, organ_system: location}}
         lookup.map do |locations, body_spot|
             if locations.include?(location)
-                {wiki: location, tereza: body_spot, bug: bug}
+                {
+		    wiki_organ_system_name: location, 
+                    organ_system_name: body_spot, 
+                    organism_name: bug
+                }
             end
         end.compact
     end.flatten(1)
 
 base_data.each do |item|
-    puts item
+    puts Organism.create name: item[:organism_name]
 end
 
