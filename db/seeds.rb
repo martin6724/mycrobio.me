@@ -91,6 +91,8 @@ end
     end.flatten(1)
 
 base_data.each do |item|
-    puts Organism.create name: item[:organism_name]
+    organism = Organism.find_or_create_by name: item[:organism_name]
+    organ_system = OrganSystem.find_or_create_by name: item[:organ_system_name]
+    puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
 
