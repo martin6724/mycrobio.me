@@ -1,53 +1,31 @@
-<h1>OrganSystems#index</h1>
-<%= javascript_include_tag('organ_systems.js') %>
-<%= stylesheet_link_tag "organ_systems.scss" %>
-<html style="height: 100%; overflow: hidden;">
-<body style="height: 100%; margin: 0">
-  <h1>Man of ur Dreamz Take 7</h1>
+    <iframe
+      id="embedded-human"
+      frameBorder="0"
+      width="700"
+      height="500"
+      allowFullScreen="true"
+      src="https://human.biodigital.com/widget/?be=2WDA&background.colors=0,0,0,0,0,0,0,0&ui-fullscreen=false&ui-share=false&dk=e2c952a0399972a17607c3a82fb804513d551c19">
+    </iframe>
+    <div id="panel">
+      <div id="systems_list">Click to fly to an object</div>
+          <a id="nasopharynx" href="#">Nasopharynx</a>
+          <br>
+           <a id="respiratory" href="#">Respiratory</a>
+           <br>
+           <a id="skin" href="#">Skin</a>
+           <br>
+           <a id="stomach" href="#">Stomach</a>
+           <br>
+           <a id="smallintestine" href="#">Small Intestine</a>
+           <br>
+           <a id="largeintestine" href="#">Large Intestine</a>
+           <br>
+           <a id="urinary" href="#">Urinary</a>
+           <br>
+           <a id="genitalia" href="#">Genitalia</a>
+           <br>
 
-  <iframe id="myWidget" allowFullScreen="true" src="https://human.biodigital.com/widget/?be=2WCP&dk=e2c952a0399972a17607c3a82fb804513d551c19" width="100%" height="100%">
-  </iframe>
-  <div id="panel">
-    <!-- <input type="text" id="search" onkeyup="searchFunction()" placeholder="Search Anatomy..."> -->
-    <div id="caption" style="font-weight: bold">
-      <!-- <label for="list_view_filter">View:  </label> -->
-      <!-- <select id="list_view_filter">
-      <option value="display_name">Display name</option>
-      <option value="object_id">Object IDs</option> -->
-    </select>
-  </div>
-  <table id="list"   style=" font-weight: bold;">
+    </div>
 
-    <tr>
-      1. Nasalpharynx - mouth/throat/teeth
-    </tr>
-    <br>
-    <tr>
-      2. Respiratory
-    </tr>
-    <br>
-    <tr>
-      3. Stomach
-    </tr>
-    <br>
-    <tr>
-      4. Small Intestine
-    </tr>
-    <br>
-    <tr>
-      5. Large Intestine
-    </tr>
-    <br>
-    <tr>
-      6. Urethra
-    </tr>
-    <br>
-    <tr>
-      7. Genitailia
-    </tr>
-    <br>
-    <tr>
-      8. Skin
-    </tr>
-  </table>
-</div>
+  </body>
+</html>
