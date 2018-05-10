@@ -1,3 +1,4 @@
 class OrganSystem < ApplicationRecord
-	has_many :organisms
+	has_many :floras
+	has_many :organisms, through: :floras
 end

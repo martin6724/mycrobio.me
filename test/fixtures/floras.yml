@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organ_system: one
+  organism: one
+
+two:
+  organ_system: two
+  organism: two

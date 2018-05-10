@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_09_171845) do
+ActiveRecord::Schema.define(version: 2018_05_10_171701) do
+
+  create_table "antibiotics", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "floras", force: :cascade do |t|
+    t.integer "organ_system_id"
+    t.integer "organism_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organ_system_id"], name: "index_floras_on_organ_system_id"
+    t.index ["organism_id"], name: "index_floras_on_organism_id"
+  end
 
   create_table "organ_systems", force: :cascade do |t|
     t.string "name"

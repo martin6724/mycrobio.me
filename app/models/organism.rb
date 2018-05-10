@@ -1,3 +1,4 @@
 class Organism < ApplicationRecord
-	belongs_to :organ_system
+	has_many :floras
+	has_many :organ_systems, through: :floras
 end
