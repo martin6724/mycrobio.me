@@ -27,4 +27,6 @@ $("#largeintestine").on("click", function(e) {
   e.preventDefault();
   human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
 });
+
+
 })
