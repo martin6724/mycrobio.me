@@ -53,7 +53,7 @@ values = {
     ],
 }
 lookup = Hash[values.values.zip(values.keys)]
-
+#sanitize locations
 base_data = dom.css('tr').map do |row|
     row.text.strip
 end
@@ -82,14 +82,14 @@ end
         lookup.map do |locations, body_spot|
             if locations.include?(location)
                 {
-		    wiki_organ_system_name: location, 
+		    		wiki_organ_system_name: location, 
                     organ_system_name: body_spot, 
                     organism_name: bug
                 }
             end
         end.compact
     end.flatten(1)
-
+#populate the db tables:
 base_data.each do |item|
     organism = Organism.find_or_create_by name: item[:organism_name]
     organ_system = OrganSystem.find_or_create_by name: item[:organ_system_name]
