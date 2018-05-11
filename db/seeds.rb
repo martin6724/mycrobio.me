@@ -117,5 +117,4 @@ end
 
 antibiotic_list.each do |item|
 	puts Antibiotic.find_or_create_by name: item
-
 end
