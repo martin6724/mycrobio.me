@@ -89,10 +89,33 @@ end
             end
         end.compact
     end.flatten(1)
-#populate the db tables:
+# #populate the db tables:
 base_data.each do |item|
     organism = Organism.find_or_create_by name: item[:organism_name]
     organ_system = OrganSystem.find_or_create_by name: item[:organ_system_name]
     puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
+exclusions = [
+	'[hide]',
+	'Others',
+	'Generic',
+	'Social',
+	'Unclassified',
+].map{|item| item.downcase}
+html1 = File.read "db/antibiotics.html"
+dom1 = Nokogiri::HTML html1
+antibiotic_list = dom1.css('tr').map do |row|
+	row.text.strip.split.first
+end.compact.sort.uniq
+.reject do |item|
+	exclusions.include?(item.downcase)
+end
+.map{|item| item.downcase }
+.map{|item| item.sub('(bs)', '') }
+.reject{|item| item.end_with?('s')}
 
+
+antibiotic_list.each do |item|
+	puts Antibiotic.find_or_create_by name: item
+
+end
