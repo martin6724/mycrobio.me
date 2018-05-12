@@ -25,10 +25,7 @@
 </head>
 
   <body>
-
-    <!-- Navigation -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000080;" fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000080;" >
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src="assets/logo.jpg" width="150" height="50" alt="logo">
@@ -56,20 +53,19 @@
         </div>
       </div>
     </nav>
-
     <!-- Page Content -->
-    <div class="container text-center" style="padding-top:-35px; margin-top:-35px">
+    <div class="container text-center" style="padding-top: 40px;">
       <h1 class="mt-5">MICROBIOME</h1>
       <p>The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and height of the logo within the HTML. For best results, it's recommended that you use an SVG image as your logo.</p>
-      <div class="row d-flex" style="padding-top:-10px; margin-top:-10px">
-        <div class="col-3 col align-self-center  ">
-          <button type="button" class="btn btn-primary btn-lg btn-block  responsive-width ">MALE</button>
+      <div class="row d-flex">
+        <div class="col-3 col align-self-center ">
+          <a class="btn btn-primary btn-lg btn-block responsive-width" href="organ_systems/male_index" role="button">MALE</a>
         </div>
         <div class="col-6 animated fadeIn">
           <img onclick="myFunction()" src="assets/male-female-body-2.jpg" class="img-fluid" alt="Responsive image">
         </div>
         <div class="col-3 col align-self-center">
-          <button type="button" class="btn btn-primary btn-lg btn-block responsive-width">FEMALE</button>
+          <a class="btn btn-primary btn-lg btn-block responsive-width" href="organ_systems/female_index" role="button">FEMALE</a>
         </div>
       </div>
 
