@@ -25,20 +25,22 @@
 </head>
 
   <body>
-  <%= render "navbar" %> 
+  <%= render "navbar" %>
     <!-- Page Content -->
     <div class="container text-center" style="padding-top: 40px;">
       <h1 class="mt-5">MICROBIOME</h1>
       <p>The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and height of the logo within the HTML. For best results, it's recommended that you use an SVG image as your logo.</p>
       <div class="row d-flex">
         <div class="col-3 col align-self-center ">
-          <a class="btn btn-primary btn-lg btn-block responsive-width" href="organ_systems/male_index" role="button">MALE</a>
+          <%= link_to "MALE", male_path, :class => "btn btn-primary btn-lg btn-block responsive-width" %>
         </div>
         <div class="col-6 animated fadeIn">
-          <img onclick="myFunction()" src="assets/male-female-body-2.jpg" class="img-fluid" alt="Responsive image">
+          <%= image_tag "male-female-body-2.jpg", :onclick => "myFunction()", :class => "img-fluid" %>
         </div>
         <div class="col-3 col align-self-center">
-          <a class="btn btn-primary btn-lg btn-block responsive-width" href="organ_systems/female_index" role="button">FEMALE</a>
+          <!-- <a class="btn btn-primary btn-lg btn-block responsive-width" href="organ_systems/female_index" role="button">FEMALE</a> -->
+          <%= link_to "FEMALE", female_path, :class => "btn btn-primary btn-lg btn-block responsive-width" %>
+
         </div>
       </div>
 

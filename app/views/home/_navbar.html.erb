@@ -10,18 +10,23 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-          </a>
+          <!-- a class="nav-link" href="#">Home</a -->
+          <%= link_to "Home", home_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <!-- <a class="nav-link" href="#">About</a> -->
+          <%= link_to "About", about_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Male</a>
+          <!-- <a class="nav-link" href="#">Male</a> -->
+          <%= link_to "Male", male_path, :class => "nav-link" %>
+
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Female
-            <span class="sr-only">(current)</span>
+          <!-- <a class="nav-link" href="#">Female -->
+          <%= link_to "Female", female_path, :class => "nav-link" %>
+
+            <!-- <span class="sr-only">(current)</span> -->
           </a>
         </li>
       </ul>
