@@ -96,7 +96,7 @@ base_data.each do |item|
     organ_system = OrganSystem.find_or_create_by name: item[:organ_system_name]
     puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
-#sanitize organism list
+#sanitize organism and antibiotic list; took out deprecated antibiotics
 exclusions = [
 	'[hide]',
 	'Others',
@@ -124,6 +124,7 @@ exclusions = [
 	"platensimycin",
 	"posizolid",
 	"radezolid",
+	"silver",
 	"spiramycin",
 	"sulfamethizole",
 	"sulfadimethoxine",
@@ -142,13 +143,13 @@ dom1 = Nokogiri::HTML html1
 
 antibiotic_list = dom1.css('tr').map do |row|
 	row.text.strip.split.first
-end.compact.sort.uniq
+end.compact.sort.uniq #alphabetize and remove repeats
 .reject do |item|
 	exclusions.include?(item.downcase)
 end
-.map{|item| item.downcase }
-.map{|item| item.sub('(bs)', '') }
-.reject{|item| item.end_with?('s')}
+.map{|item| item.downcase } #take all caps out
+.map{|item| item.sub('(bs)', '') } #remove junk at the end of some entries
+.reject{|item| item.end_with?('s')} #remove Abx classes
 
 antibiotic_list.each do |item|
 	puts Antibiotic.find_or_create_by name: item
