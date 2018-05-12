@@ -3,12 +3,33 @@ class OrganSystemsController < ApplicationController
   end
 
   def show
-end
+  end
 
   def create
   end
 
-  def modal1_trigger
+  def nasopharynx_trigger
   end
-  
+
+  def respiratory_trigger
+  end
+
+  def stomach_trigger
+  end
+
+  def smallintestine_trigger
+  end
+
+  def largeintestine_trigger
+  end
+
+  def urinary_trigger
+  end
+
+  def genitalia_trigger
+  end
+
+  def skin_trigger
+  end
+
 end
