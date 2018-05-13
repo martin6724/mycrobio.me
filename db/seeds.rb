@@ -124,7 +124,7 @@ exclusions = [
 	"platensimycin",
 	"posizolid",
 	"radezolid",
-	"silver",
+    "silver",
 	"spiramycin",
 	"sulfamethizole",
 	"sulfadimethoxine",
@@ -134,7 +134,9 @@ exclusions = [
 	"trovafloxacin",
 	"temocillin",
 	"thiamphenicol",
-	"ticarcillin"
+	"ticarcillin",
+    "ticarcillin/clavulanate",
+    "trimethoprim",
 ].map{|item| item.downcase}
 
 #populate the antibiotics table
@@ -154,3 +156,41 @@ end
 antibiotic_list.each do |item|
 	puts Antibiotic.find_or_create_by name: item
 end
+
+abx_families = {
+    'aminoglycoside' => 
+                    ['amikacin', 'capreomycin', 'gentamicin', 'kanamycin', 'neomycin', 'netilmicin', 'paromomycin', 'spectinomycin', 'streptomycin', 'tobramycin'],
+    'antimycobacterial' => 
+                    ['clofazimine', 'cycloserine', 'dapsone', 'ethambutol', 'ethionamide', 'isoniazid', 'pyrazinamide', 'rifabutin', 'rifampin'],
+    'beta-lactam' => [
+                    'cephalosporin': ['cefaclor', 'cefadroxil', 'cefalexin', 'cefazolin', 'cefdinir', 'cefditoren', 'cefepime', 
+'cefixime', 'cefoperazone', 'cefotaxime', 'cefpodoxime', 'cefprozil', 'ceftaroline', 'ceftazidime', 'ceftibuten', 'ceftriaxone', 'cefuroxime'], 
+                    'carbapenem': ['doripenem', 'ertapenem', 'imipenem/cilastatin', 'meropenem'], 
+                    'monobactam': 'aztreonam', 
+                    'penicillin': ['amoxicillin', 'amoxicillin/clavulanate', 'ampicillin', 'ampicillin/sulbactam', 'dicloxacillin', 'nafcillin', 'oxacillin', 'penicillin', 'piperacillin/tazobactam']], 
+    'fluoroquinolone' => 
+                    ['ciprofloxacin', 'enoxacin', 'gatifloxacin', 'gemifloxacin', 'levofloxacin', 'moxifloxacin', 'nalidixic acid', 'norfloxacin', 
+'ofloxacin', 'sparfloxacin'],
+    'lincosamide' => 
+                    ['clindamycin', 'lincomycin'],
+    'macrolide' => 
+                    ['azithromycin', 'clarithromycin', 'roxithromycin', 'telithromycin'],
+    'nitrofuran' => 
+                    ['furazolidone', 'nitrofurantoin'],
+    'nitroimidazole' => 
+                    ['metronidazole', 'tinidazole'],
+    'other' => 
+                    ['fosfomycin', 'mupirocin', 'rifaximin'],
+    'oxazolidinone' => 
+                    ['linezolid', 'tedizolid'],
+    'polypeptide' => 
+                    ['cyclic polypeptide': ['bacitracin', 'colistin', 'polymyxin'],
+                    'cyclic lipopeptide': 'daptomycin'],
+                    'glycopeptide': ['dalbavancin', 'oritavancin', 'teicoplanin', 'telavancin', 'vancomycin'],
+    'streptogramin' => 
+                    ['quinupristin/dalfopristin'],
+    'sulfonamide' => 
+                    ['mafenide', 'sulfadiazine', 'sulfanilamide', 'sulfisoxazole', 'trimethoprim-sulfamethoxazole'],
+    'tetracycline' => 
+                    ['demeclocycline', 'minocycline', 'doxycycline', 'oxytetracycline', 'tetracycline', 'tigecycline'],
+    }
