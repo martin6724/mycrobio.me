@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_194046) do
+ActiveRecord::Schema.define(version: 2018_05_14_212830) do
 
   create_table "antibiotics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(version: 2018_05_11_194046) do
   end
 
   create_table "efficacies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "value"
+    t.bigint "flora_id"
+    t.bigint "antibiotic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.index ["antibiotic_id"], name: "index_efficacies_on_antibiotic_id"
+    t.index ["flora_id"], name: "index_efficacies_on_flora_id"
   end
 
   create_table "floras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,6 +49,8 @@ ActiveRecord::Schema.define(version: 2018_05_11_194046) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "efficacies", "antibiotics"
+  add_foreign_key "efficacies", "floras"
   add_foreign_key "floras", "organ_systems"
   add_foreign_key "floras", "organisms"
 end

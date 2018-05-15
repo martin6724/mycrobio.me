@@ -1,0 +1,5 @@
+class AddRatingToEfficacy < ActiveRecord::Migration[5.2]
+  def change
+  	add_column :efficacies, :rating, :integer
+  end
+end
