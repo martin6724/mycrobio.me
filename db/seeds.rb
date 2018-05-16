@@ -96,7 +96,7 @@ base_data.each do |item|
     organ_system = OrganSystem.find_or_create_by name: item[:organ_system_name]
     puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
-#sanitize organism and antibiotic list; took out deprecated antibiotics
+#sanitize organism and antibiotic list; take out deprecated antibiotics
 exclusions = [
 	'[hide]',
 	'Others',
@@ -139,7 +139,6 @@ exclusions = [
     "trimethoprim",
 ].map{|item| item.downcase}
 
-#populate the antibiotics table
 html1 = File.read "db/antibiotics.html"
 dom1 = Nokogiri::HTML html1
 
@@ -153,167 +152,168 @@ end
 .map{|item| item.downcase } #take all caps out
 .map{|item| item.sub('(bs)', '') } #remove junk at the end of some entries
 .reject{|item| item.end_with?('s')} #remove Abx classes
-.push("fidaxomicin")
+.push("fidaxomicin", "clotrimazole", "fluconazole", "itraconazole", "ketoconazole", "nystatin")
 
-abx_families = {
-  'aminoglycoside' => [
-  'amikacin',
-  'capreomycin',
-  'gentamicin',
-  'kanamycin',
-  'neomycin',
-  'netilmicin',
-  'paromomycin',
-  'spectinomycin',
-  'streptomycin',
-  'tobramycin'
-],
-  'antimycobacterial' => [
-  'clofazimine',
-  'cycloserine',
-  'dapsone',
-  'ethambutol',
-  'ethionamide',
-  'isoniazid',
-  'pyrazinamide',
-  'rifabutin',
-  'rifampin',
-  'rifapentine'
-],
-  'beta-lactam' => [
-  {
-    'cephalosporin': [
-        'cefaclor',
-        'cefadroxil',
-        'cefalexin',
-        'cefazolin',
-        'cefdinir',
-        'cefditoren',
-        'cefepime',
-        'cefixime',
-        'cefoperazone',
-        'cefotaxime',
-        'cefpodoxime',
-        'cefprozil',
-        'ceftaroline',
-        'ceftazidime',
-        'ceftibuten',
-        'ceftriaxone',
-        'cefuroxime',
-      ]
-  },
-  {
-    'carbapenem': [
-      'doripenem',
-      'ertapenem',
-      'imipenem/cilastatin',
-      'meropenem'
-    ]
-  },
-  {
-    'monobactam': ['aztreonam',]
-  },
-  {
-  'penicillin': [
-      'amoxicillin',
-      'amoxicillin/clavulanate',
-      'ampicillin',
-      'ampicillin/sulbactam',
-      'dicloxacillin',
-      'nafcillin',
-      'oxacillin',
-      'penicillin',
-      'piperacillin/tazobactam'
-    ]
-  }
-],
-'fluoroquinolone' => [
-  'ciprofloxacin',
-  'enoxacin',
-  'gatifloxacin',
-  'gemifloxacin',
-  'levofloxacin',
-  'moxifloxacin',
-  'nalidixic acid',
-  'norfloxacin',
-  'ofloxacin',
-  'sparfloxacin'
-],
-'lincosamide' => [
-  'clindamycin',
-  'lincomycin'
-],
-'macrolide' => [
-  'azithromycin',
-  'clarithromycin',
-  'roxithromycin',
-  'telithromycin'
-],
-'nitrofuran' => [
-  'furazolidone',
-  'nitrofurantoin'
-],
-'nitroimidazole' => [
-'metronidazole',
-'tinidazole'
-],
-'other' => [
-  'chloramphenicol',
-  'fidaxomicin',
-  'fosfomycin',
-  'mupirocin',
-  'rifaximin'
-],
-'oxazolidinone' => [
-  'linezolid',
-  'tedizolid'
-],
-'polypeptide' => [ 
-  {
-    'cyclic polypeptide': [
-    'bacitracin',
-    'colistin',
-    'polymyxin'
-    ]
-  },
-  {
-    'glycopeptide': [
-    'dalbavancin',
-    'oritavancin',
-    'teicoplanin',
-    'telavancin',
-    'vancomycin',
-    ]
-  },
-  {'cyclic lipopeptide': ['daptomycin']}
-],
-'streptogramin' => [
-  'quinupristin/dalfopristin'
-],
-'sulfonamide' => [
-  'mafenide',
-  'sulfadiazine',
-  'sulfanilamide',
-  'sulfisoxazole',
-  'trimethoprim-sulfamethoxazole'
-],
-'tetracycline' => [
-    'demeclocycline',
-    'minocycline',
-    'doxycycline',
-    'oxytetracycline',
-    'tetracycline',
-    'tigecycline'
-  ],
-}
 #populate the antibiotics into table
-antibiotic_list.map! do |item|
+
+antibiotic_objects = antibiotic_list.map do |item|
 	Antibiotic.find_or_create_by name: item
 end
 
-#populate the efficacy table
-# efficacy_list = (Flora.all).product(antibiotic_list)
+floras = [
+  ["achromobacter spp", "large intestine"],
+  ["acidaminococcus fermentans", "large intestine"],
+  ["acinetobacter calcoaceticus", "large intestine"],
+  ["aeromonas spp", "large intestine"],
+  ["alcaligenes faecalis", "large intestine"],
+  ["bacillus spp", "large intestine"],
+  ["butyriviberio fibrosolvens", "large intestine"],
+  ["campylobacter spp", "large intestine"],
+  ["clostridium spp", "large intestine"],
+  ["clostridium difficile", "large intestine"],
+  ["clostridium sordellii", "large intestine"],
+  ["flavobacterium spp", "large intestine"],
+  ["lactobacillus spp", "large intestine"],
+  ["mycobacteria spp", "large intestine"],
+  ["mycoplasma spp", "large intestine"],
+  ["peptococcus spp", "large intestine"],
+  ["propionibacterium spp", "large intestine"],
+  ["pseudomonas aeruginosa", "large intestine"],
+  ["ruminococcus bromii", "large intestine"],
+  ["ruminococcus spp", "large intestine"],
+  ["sarcina spp", "large intestine"],
+  ["staphylococcus aureus", "large intestine"],
+  ["streptococcus viridans", "large intestine"],
+  ["veillonella spp", "large intestine"],
+  ["vibrio spp", "large intestine"],
+  ["yersinia enterocolitica", "large intestine"],
+  ["achromobacter spp", "small intestine"],
+  ["actinomyces spp", "small intestine"],
+  ["aeromonas spp", "small intestine"],
+  ["alcaligenes faecalis", "small intestine"],
+  ["bacteroides spp", "small intestine"],
+  ["clostridium spp", "small intestine"],
+  ["clostridium sordellii", "small intestine"],
+  ["enterococcus spp", "small intestine"],
+  ["eubacterium spp", "small intestine"],
+  ["flavobacterium spp", "small intestine"],
+  ["fusobacterium spp", "small intestine"],
+  ["methanobrevibacter smithii", "small intestine"],
+  ["mycobacteria spp", "small intestine"],
+  ["mycoplasma spp", "small intestine"],
+  ["peptostreptococcus spp", "small intestine"],
+  ["pseudomonas aeruginosa", "small intestine"],
+  ["staphylococcus aureus", "small intestine"],
+  ["streptococcus viridans", "small intestine"],
+  ["vibrio spp", "small intestine"],
+  ["actinomyces spp", "nasopharynx"],
+  ["actinomyces viscosus", "nasopharynx"],
+  ["actinomyces naeslundii", "nasopharynx"],
+  ["aggregatibacter actinomycetemcomitans", "nasopharynx"],
+  ["arachnia propionica", "nasopharynx"],
+  ["bacteroides spp", "nasopharynx"],
+  ["bacteroides gingivalis", "nasopharynx"],
+  ["bacteroides intermedius", "nasopharynx"],
+  ["bacteroides pneumosintes", "nasopharynx"],
+  ["buchnera aphidicola", "nasopharynx"],
+  ["campylobacter sputorum", "nasopharynx"],
+  ["campylobacter upsaliensis", "nasopharynx"],
+  ["candida albicans", "nasopharynx"],
+  ["capnocytophaga spp", "nasopharynx"],
+  ["corynebacterium spp", "nasopharynx"],
+  ["eikenella corrodens", "nasopharynx"],
+  ["enterococcus spp", "nasopharynx"],
+  ["eubacterium spp", "nasopharynx"],
+  ["fusobacterium spp", "nasopharynx"],
+  ["fusobacterium nucleatum", "nasopharynx"],
+  ["haemophilus parainfluenzae", "nasopharynx"],
+  ["haemophilus paraphrophilus", "nasopharynx"],
+  ["lactobacillus spp", "nasopharynx"],
+  ["leptotrichia buccalis", "nasopharynx"],
+  ["micrococcus spp", "nasopharynx"],
+  ["mycoplasma spp", "nasopharynx"],
+  ["neisseria spp", "nasopharynx"],
+  ["neisseria sicca", "nasopharynx"],
+  ["peptococcus spp", "nasopharynx"],
+  ["peptostreptococcus spp", "nasopharynx"],
+  ["porphyromonas gingivalis", "nasopharynx"],
+  ["rothia dentocariosa", "nasopharynx"],
+  ["staphylococcus aureus", "nasopharynx"],
+  ["staphylococcus epidermidis", "nasopharynx"],
+  ["streptococcus mutans", "nasopharynx"],
+  ["streptococcus oralis", "nasopharynx"],
+  ["streptococcus pneumoniae", "nasopharynx"],
+  ["streptococcus sobrinus", "nasopharynx"],
+  ["streptococcus viridans", "nasopharynx"],
+  ["candida glabrata", "nasopharynx"],
+  ["treponema denticola", "nasopharynx"],
+  ["treponema refringens", "nasopharynx"],
+  ["veillonella spp", "nasopharynx"],
+  ["vibrio sputorum", "nasopharynx"],
+  ["wolinella succinogenes", "nasopharynx"],
+  ["acinetobacter spp", "nasopharynx"],
+  ["cardiobacterium spp", "nasopharynx"],
+  ["citrobacter freundii", "nasopharynx"],
+  ["haemophilus spp", "nasopharynx"],
+  ["moraxella spp", "nasopharynx"],
+  ["moraxella catarrhalis", "nasopharynx"],
+  ["mycoplasma orale", "nasopharynx"],
+  ["neisseria cinerea", "nasopharynx"],
+  ["neisseria elongata", "nasopharynx"],
+  ["neisseria gonorrhoeae", "nasopharynx"],
+  ["neisseria lactamica", "nasopharynx"],
+  ["neisseria meningitidis", "nasopharynx"],
+  ["neisseria mucosa", "nasopharynx"],
+  ["selenomonas sputigena", "nasopharynx"],
+  ["streptobacillus spp", "nasopharynx"],
+  ["streptococcus constellatus", "nasopharynx"],
+  ["streptococcus intermedius", "nasopharynx"],
+  ["bacteroides fragilis", "skin"],
+  ["campylobacter coli", "skin"],
+  ["eikenella corrodens", "skin"],
+  ["enterobacter cloacae", "skin"],
+  ["enterococcus faecalis", "skin"],
+  ["enterococcus faecium", "skin"],
+  ["escherichia coli", "skin"],
+  ["plesiomonas shigelloides", "skin"],
+  ["propionibacterium acnes", "skin"],
+  ["streptococcus anginosus", "skin"],
+  ["streptococcus mitis", "skin"],
+  ["streptococcus pyogenes", "skin"],
+  ["citrobacter freundii", "respiratory"],
+  ["gordonia bacterium spp", "respiratory"],
+  ["mycobacterium chelonae", "respiratory"],
+  ["neisseria sicca", "respiratory"],
+  ["burkholderia cepacia complex", "respiratory"],
+  ["chlamydophila pneumoniae", "respiratory"],
+  ["kingella spp", "respiratory"],
+  ["kingella kingae", "respiratory"],
+  ["mycoplasma pneumoniae", "respiratory"],
+  ["peptococcus spp", "respiratory"],
+  ["pseudomonas aeruginosa", "respiratory"],
+  ["streptococcus pyogenes", "respiratory"],
+  ["clostridium sordellii", "stomach"],
+  ["acinetobacter spp", "urethra"],
+  ["candida albicans", "urethra"],
+  ["corynebacterium spp", "urethra"],
+  ["enterobacteriaceae", "urethra"],
+  ["streptococcus viridans", "urethra"],
+  ["bacteroides spp", "genitalia"],
+  ["candida albicans", "genitalia"],
+  ["corynebacterium spp", "genitalia"],
+  ["enterobacteriaceae", "genitalia"],
+  ["streptococcus viridans", "genitalia"],
+  ["staphylococcus aureus", "genitalia"],
+].map do |bug, body|
+  [Organism.find_by(name: bug), OrganSystem.find_by(name: body)]
+end
 
-# efficacy_list.each do |item|
-# 	p item
-# end 
+index = 0
+antibiotic_objects.product(floras).each do |antibiotic, pair|
+  organism, organ_system = pair
+  flora = Flora.find_by(organism: organism, organ_system: organ_system)
+  Efficacy.find_or_create_by(antibiotic: antibiotic, flora: flora)
+  puts index
+  index += 1
+end
+
