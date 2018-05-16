@@ -89,7 +89,7 @@ $("#furinary").on("click", function(e) {
 
 $("#fgenitalia").on("click", function(e) {
   e.preventDefault();
-  female.send("camera.set", { objectId: "human_05_female_reproductive_system-reproductive_system_ID", animate: true });
+  female.send("camera.set", { objectId: "human_05_female_reproductive_system-internal_genitalia_ID", animate: true });
 });
 
 
