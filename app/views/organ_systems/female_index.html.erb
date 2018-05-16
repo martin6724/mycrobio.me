@@ -17,45 +17,17 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000080;" fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="http://placehold.it/300x60?text=Logo" width="150" height="30" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Male</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Female</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  <%= render "home/navbar" %>
   <!-- Page Content -->
-  <div class="container text-center">
+  <div class="container text-center" style="padding-top: 40px;">
     <h1 class="mt-5">FEMALE ORGAN SYSTEMS</h1>
 
     <p>The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and height of the logo within the HTML. For best results, it's recommended that you use an SVG image as your logo.</p>
     <br>
     <div class="row systems">
       <div class="col-4">
-        <button type="button" id="fnasopharynx" class="btn btn-primary btn-lg btn-block responsive-width" data-toggle="modal" data-target="#exampleModalLong">Nasalpharynx</button>
+      <%= link_to "fnasopharynx", fnasopharynx_path, :class => "btn btn-primary btn-lg btn-block responsive-width", remote: true %>
+        <!-- <button type="button" id="fnasopharynx" class="btn btn-primary btn-lg btn-block responsive-width" data-toggle="modal" data-target="#exampleModalLong">Nasalpharynx</button> -->
         <button type="button" id="frespiratory" class="btn btn-primary btn-lg btn-block responsive-width">Respiratory</button>
         <button type="button" id="fstomach" class="btn btn-primary btn-lg btn-block responsive-width">Stomach</button>
         <button type="button" id="fsmallintestine" class="btn btn-primary btn-lg btn-block responsive-width">Small Intestine </button>
@@ -66,14 +38,14 @@
       </div>
 
       <div class="col-8">
-      <iframe
-        id="fembedded-human"
-        frameBorder="0"
-        width="700"
-        height="500"
-        allowFullScreen="true"
-        src="https://human.biodigital.com/widget/?be=2WIX&background.colors=0,0,0,0,0,0,0,0&ui-fullscreen=false&ui-share=false&dk=e2c952a0399972a17607c3a82fb804513d551c19">
-      </iframe>
+        <iframe
+          id="embedded-human"
+          frameBorder="0"
+          width="700"
+          height="500"
+          allowFullScreen="true"
+          src="https://human.biodigital.com/widget/?be=2WLQ&background.colors=0,0,0,0,0,0,0,0&ui-fullscreen=false&ui-share=false&dk=e2c952a0399972a17607c3a82fb804513d551c19">
+        </iframe>
     </div>
 
   </div>
@@ -81,7 +53,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade michelle" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -91,41 +63,16 @@
         </button>
       </div>
       <div class="modal-body">
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+<!--  there was content here -->
 
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
 
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
 
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
 
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
 
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
 
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
 
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -7,4 +7,8 @@ end
 
   def create
   end
+
+  def modal1_trigger
+  end
+  
 end
