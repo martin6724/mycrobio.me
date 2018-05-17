@@ -6,7 +6,7 @@ default: &default
   database: tereza_abx_picker
   username: tereza
   password: ajhxx6xGzYdlh0N6
-  host: dokku-hosted.thruhere.net 
+  host: dokku-hosted.thruhere.net
   port: 8332
 
 development:

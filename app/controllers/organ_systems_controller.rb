@@ -21,6 +21,12 @@ class OrganSystemsController < ApplicationController
   end
 
   def largeintestine_trigger
+    large_intestine = OrganSystem.find_by(name: 'large intestine')
+    @lifos = Flora.where(organ_system: large_intestine)
+      .map{ |flora| flora.organism.name }
+    if @lifos.empty?
+      raise RuntimeError.new '@lifos are empty'
+    end
   end
 
   def urinary_trigger
