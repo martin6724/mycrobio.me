@@ -97,6 +97,9 @@ base_data.each do |item|
     puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
 #sanitize organism and antibiotic list; take out deprecated antibiotics
+html1 = File.read "antibiotics.html"
+dom1 = Nokogiri::HTML html1
+
 exclusions = [
 	'[hide]',
 	'Others',
@@ -107,7 +110,9 @@ exclusions = [
 	"azlocillin",
 	"carbacephem",
 	"ceftobiprole",
+    "clofazimine",
 	"flucloxacillin",
+    "furazolidone",
 	"fusidic",
 	"geldanamycin",
 	"grepafloxacin",
@@ -119,43 +124,59 @@ exclusions = [
 	"methicillin",
 	"mezlocillin",
 	"nadifloxacin",
+    "nalidixic",
 	"pharmacology",
 	"piperacillin",
 	"platensimycin",
 	"posizolid",
 	"radezolid",
+    "roxithromycin",
     "silver",
+    "sparfloxacin",
 	"spiramycin",
 	"sulfamethizole",
 	"sulfadimethoxine",
 	"sulfonamidochrysoidine",
+    "teicoplanin",
 	"teixobactin",
 	"temafloxacin",
+    "trimethoprim(bs)",
 	"trovafloxacin",
 	"temocillin",
 	"thiamphenicol",
 	"ticarcillin",
-    "ticarcillin/clavulanate",
-    "trimethoprim",
+    "ticarcillin/clavulanate"
 ].map{|item| item.downcase}
 
+antibiotic_list = dom1.css('tr').map do |row|
+	row.text.strip.split.first
+end.compact
+.push(
+    "fidaxomicin", 
+    "clotrimazole", 
+    "fluconazole", 
+    "ketoconazole", 
+    "miconazole", 
+    "nystatin"
+).sort
+.uniq #alphabetize and remove repeats
+.reject do |item|
+	exclusions.include?(item.downcase)
+end.sort
+.map{|item| item.downcase }
+.map{|item| item.sub(/(.*)\(bs\)$/, '\1')}
+.map{|item| item.sub('torezolid', 'tedizolid')}
+.map{|item| item.sub('sulfanilimide', 'sulfanilamide')}
+.map{|item| item.sub('rifampicin', 'rifampin')}
+.map{|item| item.sub('sulfasalazine', 'sulfadiazine')}
+.map{|item| item.sub('trimethoprim-sulfamethoxazole', 'sulfamethoxazole-trimethoprim')}
+.reject{|item| item.end_with?('s')}
+
+locations = values # reassign because two copies, don't want to change below
 html1 = File.read "db/antibiotics.html"
 dom1 = Nokogiri::HTML html1
 
-#define the antibiotics array
-antibiotic_list = dom1.css('tr').map do |row|
-	row.text.strip.split.first
-end.compact.sort.uniq #alphabetize and remove repeats
-.reject do |item|
-	exclusions.include?(item.downcase)
-end
-.map{|item| item.downcase } #take all caps out
-.map{|item| item.sub('(bs)', '') } #remove junk at the end of some entries
-.reject{|item| item.end_with?('s')} #remove Abx classes
-.push("fidaxomicin", "clotrimazole", "fluconazole", "itraconazole", "ketoconazole", "nystatin")
-
 #populate the antibiotics into table
-
 antibiotic_objects = antibiotic_list.map do |item|
 	Antibiotic.find_or_create_by name: item
 end
@@ -316,4 +337,5 @@ antibiotic_objects.product(floras).each do |antibiotic, pair|
   puts index
   index += 1
 end
+
 
