@@ -1,5 +1,5 @@
 <h1>Genital Flora</h1>
-<% x = Flora.where(:organ_system_id => 8) %>
-<% x.each do |name| %>
-<p> <%= name.organism %> <p><br>
+<%  @floras = Flora.where(:organ_system_id => 8) %>
+<% @floras.each do |flora| %>
+<p> <%= flora.organism.name %> <p><br>
 <% end %>
