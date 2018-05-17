@@ -317,3 +317,121 @@ antibiotic_objects.product(floras).each do |antibiotic, pair|
   index += 1
 end
 
+[
+  [13244, 1], #urinary
+  [12542, 1],
+  [5768, 1]
+].each do |efficacy_id,  rating|
+  efficacy = Efficacy.find(efficacy_id)
+  if efficacy.nil?
+    raise RuntimeError.new "id #{efficacy_id} doesn't exist"
+  end
+  puts efficacy.update(rating: rating)
+end
+
+[
+  [3938, 2], #acineto
+  [6617, 2],
+  [7322, 2],
+  [8309, 2],
+  [9155, 2],
+  [5351, 2], #enterobac
+  [7889, 2],
+  [5774, 2],
+  [6902, 2],
+  [9017, 2],
+  [5904, 2], #c. pneumo
+  [8301, 2],
+  [828, 2],
+  [5906, 2],
+  [12533, 2],
+  [7316, 2],
+  [5484, 2],
+  [5345, 2]
+].each do |efficacy_id,  rating|
+  efficacy = Efficacy.find(efficacy_id)
+  if efficacy.nil?
+    raise RuntimeError.new "id #{efficacy_id} doesn't exist"
+  end
+  puts efficacy.update(rating: rating)
+end
+
+[
+  [7886, 3], #acineto
+  [5348, 3],
+  [6899, 3],
+  [695, 3],
+  [131, 3],
+  [6758, 3],
+  [7181, 3],
+  [11411, 3],
+  [12539, 3],
+  [12680, 3],
+  [13244, 3],
+  [4361, 3],
+  [10283, 3],
+  [13809, 3], #candida
+  [13950, 3],
+  [14232, 3],
+  [8029, 3], #coryne
+  [5914, 3],
+  [10849, 3],
+  [4222, 3],
+  [12683, 3], #enterobac
+  [6338, 3],
+  [4364, 3],
+  [6761, 3],
+  [10005, 3], #strep v
+  [12528, 3], #m. chelonae
+  [4068, 3],
+  [8157, 3],
+  [5478, 3],
+  [13233, 3],
+  [3927, 3],
+  [13235, 3], #burkhold
+  [3224, 3],
+  [5480, 3],
+  [10133, 3],
+  [3788, 3],
+  [5481, 3], #chlamydophila
+  [4071, 3],
+  [7314, 3],
+  [9995, 3],
+  [10841, 3],
+  [830, 3],
+  [5907, 3], #m. pneu
+  [4074, 3],
+  [12534, 3],
+  [7883, 3], #p.aerugi
+  [6896, 3],
+  [7319, 3],
+  [974, 3],
+  [4074, 3],
+  [4358, 3],
+  [10280, 3],
+  [3935, 3],
+  [10139, 3],
+  [3230, 3],
+  [2243, 3],
+  [6755, 3],
+  [128, 3],
+  [12959, 3],
+  [9999, 3],
+  [5910, 3],
+  [1680, 3],
+  [411, 3],
+  [4218, 3],
+  [3236, 3],
+  [134, 3],
+  [980, 3],
+  [2249, 3],
+  [9158, 3],
+  [8312, 3],
+  [3095, 3],
+].each do |efficacy_id,  rating|
+  efficacy = Efficacy.find(efficacy_id)
+  if efficacy.nil?
+    raise RuntimeError.new "id #{efficacy_id} doesn't exist"
+  end
+  puts efficacy.update(rating: rating)
+end
