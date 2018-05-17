@@ -26,7 +26,10 @@ class OrganSystemsController < ApplicationController
   def urinary_trigger
   end
 
-  def genitalia_trigger
+  def female_genitalia_trigger
+  end
+
+  def male_genitalia_trigger
   end
 
   def skin_trigger

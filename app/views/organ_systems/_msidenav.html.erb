@@ -3,14 +3,15 @@
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="menu-list">
         <ul id="menu-content" class="menu-content collapse out">
+
           <li data-toggle="collapse" data-target="#1" class="collapsed active">
             <i class="fa fa-male fa-lg"></i><%= link_to "#", :id => "nasopharynx", remote: true do %>
             <%= content_tag :span, "Nasopharynx", :class => "arrow" %>
             <% end %>
           </li>
+
           <ul class="sub-menu collapse" id="1">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activenasopharynx"> <%= link_to "System Flora", nasopharynx_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
           </ul>
 
           <li data-toggle="collapse" data-target="#2" class="collapsed active">
@@ -19,8 +20,8 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="2">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activerespiratory"> <%= link_to "System Flora", respiratory_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
+
           </ul>
 
           <li data-toggle="collapse" data-target="#3" class="collapsed active">
@@ -29,8 +30,8 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="3">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activestomach"> <%= link_to "System Flora", stomach_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
+
           </ul>
 
           <li data-toggle="collapse" data-target="#4" class="collapsed active">
@@ -39,8 +40,8 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="4">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activesmallintestine"> <%= link_to "System Flora", smallintestine_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
+
           </ul>
 
           <li data-toggle="collapse" data-target="#5" class="collapsed active">
@@ -49,8 +50,7 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="5">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activelargeintestine"> <%= link_to "System Flora", largeintestine_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
           </ul>
 
           <li data-toggle="collapse" data-target="#6" class="collapsed active">
@@ -59,8 +59,8 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="6">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activeurinary"> <%= link_to "System Flora", urinary_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
+
           </ul>
 
           <li data-toggle="collapse" data-target="#7" class="collapsed active">
@@ -69,8 +69,8 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="7">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activegenitalia"> <%= link_to "System Flora", male_genitalia_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
+
           </ul>
 
           <li data-toggle="collapse" data-target="#8" class="collapsed active">
@@ -79,8 +79,8 @@
             <% end %>
           </li>
           <ul class="sub-menu collapse" id="8">
-              <li class="active"><a href="#">Living Bacterias</a></li>
-              <li><a href="#">Antibiotics</a></li>
+            <li class="activeskin"> <%= link_to "System Flora", skin_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
+
           </ul>
 
         </ul>
