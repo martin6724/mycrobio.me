@@ -3,104 +3,66 @@
 
   <style type="text/css">
   body { background: #eef5fb !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
-  .btn-primary {background: #000080 !important;}
+
+  .btn-primary {background: #2e353d !important; border: #2e353d !important ;}
   .btn {
     padding: 2.7% 0;
-    /* overflow: hidden; */
   }
   .responsive-width {
     font-size: 1.7vw;
   }
-
   </style>
 
 </head>
 
-<body>
-<%= render "home/navbar" %>
+<body >
+  <%= render "home/navbar" %>
   <!-- Page Content -->
-  <div class="container text-center" style="padding-top: 40px;">
-    <h1 class="mt-5">MALE ORGAN SYSTEMS</h1>
 
-    <p>The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and height of the logo within the HTML. For best results, it's recommended that you use an SVG image as your logo.</p>
-    <br>
-    <div class="row systems">
-      <div class="col-4">
-        <button type="button" id="nasopharynx" class="btn btn-primary btn-lg btn-block responsive-width" data-toggle="modal" data-target="#exampleModalLong">Nasalpharynx</button>
-        <button type="button" id="respiratory" class="btn btn-primary btn-lg btn-block responsive-width">Respiratory</button>
-        <button type="button" id="stomach" class="btn btn-primary btn-lg btn-block responsive-width">Stomach</button>
-        <button type="button" id="smallintestine" class="btn btn-primary btn-lg btn-block responsive-width">Small Intestine </button>
-        <button type="button" id="largeintestine" class="btn btn-primary btn-lg btn-block responsive-width">Large Intestine</button>
-        <button type="button" id="urinary" class="btn btn-primary btn-lg btn-block responsive-width">Urinary System</button>
-        <button type="button" id="genitalia" class="btn btn-primary btn-lg btn-block responsive-width">Genitailia</button>
-        <button type="button" id="skin" class="btn btn-primary btn-lg btn-block responsive-width">Skin</button>
-      </div>
 
-      <div class="col-8">
-        <iframe
-          id="embedded-human"
-          frameBorder="0"
-          width="700"
-          height="500"
-          allowFullScreen="true"
-          src="https://human.biodigital.com/widget/?be=2WLR&background.colors=0,0,0,0,0,0,0,0&ui-fullscreen=false&ui-share=false&dk=e2c952a0399972a17607c3a82fb804513d551c19">
-        </iframe>
+  <div class="row systems">
+    <div class="col-4 text-center" style="padding-top: 100px;">
+      <%= render "msidenav" %>
     </div>
 
+    <div class="col-8 text-center " style="padding-top: 145px;" >
+      <br>
+      <!-- <h3 style="padding-top: 145px;">MALE ORGAN SYSTEMS</h3>
+      <p>The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and height of the logo within the HTML. For best results, it's recommended that you use an SVG image as your logo.</p>
+      <br> -->
+      <iframe class="container"
+      id="embedded-human"
+      frameBorder="0"
+      width="100%"
+      height="500"
+      allowFullScreen="true"
+      src="https://human.biodigital.com/widget/?be=2WLR&background.colors=0,0,0,0,0,0,0,0&ui-fullscreen=false&ui-share=false&dk=e2c952a0399972a17607c3a82fb804513d551c19">
+    </iframe>
   </div>
 </div>
 
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade michelle" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header" style="background-color: #2e353d;">
+        <%= image_tag "logo.png", :style => 'width: 250px; height: 50px;' %>
+
+        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
 
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
       </div>
       <div class="modal-footer">
+
+
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>

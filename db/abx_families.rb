@@ -77,10 +77,8 @@ abx_families = {
   'gemifloxacin',
   'levofloxacin',
   'moxifloxacin',
-  'nalidixic acid',
   'norfloxacin',
   'ofloxacin',
-  'sparfloxacin'
 ],
 'lincosamide' => [
   'clindamycin',

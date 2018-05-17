@@ -41,17 +41,10 @@ $("#urinary").on("click", function(e) {
   human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
 });
 
-$("#urinary").on("click", function(e) {
+$("#genitalia").on("click", function(e) {
   e.preventDefault();
   human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
 });
-
-$("#urinary").on("click", function(e) {
-  e.preventDefault();
-  human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
-})
-
-
 
 
 // female 3d model
@@ -89,9 +82,7 @@ $("#furinary").on("click", function(e) {
 
 $("#fgenitalia").on("click", function(e) {
   e.preventDefault();
-  female.send("camera.set", { objectId: "human_05_female_reproductive_system-reproductive_system_ID", animate: true });
+  female.send("camera.set", { objectId: "human_05_female_reproductive_system-internal_genitalia_ID", animate: true });
 });
-
-
 
 })
