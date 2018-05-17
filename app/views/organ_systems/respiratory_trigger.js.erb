@@ -1,2 +1,4 @@
-$('.modal-body').html("<%= j render 'respiratory' %>"); //fill data
-$('.michelle').modal();  //launch popup
+$('.activerespiratory').click(function(){
+$('.modal-body').html("<%= j render 'respiratory' %>");
+$('.michelle').modal();
+})

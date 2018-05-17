@@ -1,0 +1,6 @@
+
+<h1>Stomach Flora</h1>
+<% x = Flora.where(:organ_system_id => 6) %>
+<% x.each do |name| %>
+<p> <%= name.organism %> <p><br>
+<% end %>
