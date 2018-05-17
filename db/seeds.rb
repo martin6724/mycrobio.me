@@ -82,7 +82,7 @@ end
         lookup.map do |locations, body_spot|
             if locations.include?(location)
                 {
-		    		wiki_organ_system_name: location, 
+            wiki_organ_system_name: location, 
                     organ_system_name: body_spot, 
                     organism_name: bug
                 }
@@ -96,68 +96,86 @@ base_data.each do |item|
     organ_system = OrganSystem.find_or_create_by name: item[:organ_system_name]
     puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
-#sanitize organism and antibiotic list; take out deprecated antibiotics
+#reject deprecated antibiotics
 exclusions = [
-	'[hide]',
-	'Others',
-	'Generic',
-	'Social',
-	'Unclassified',
-	"arsphenamine",
-	"azlocillin",
-	"carbacephem",
-	"ceftobiprole",
-	"flucloxacillin",
-	"fusidic",
-	"geldanamycin",
-	"grepafloxacin",
-	"herbimycin",
-	"lipopeptide",
-	"lomefloxacin",
-	"loracarbef",
-	"metacycline",
-	"methicillin",
-	"mezlocillin",
-	"nadifloxacin",
-	"pharmacology",
-	"piperacillin",
-	"platensimycin",
-	"posizolid",
-	"radezolid",
-    "silver",
-	"spiramycin",
-	"sulfamethizole",
-	"sulfadimethoxine",
-	"sulfonamidochrysoidine",
-	"teixobactin",
-	"temafloxacin",
-	"trovafloxacin",
-	"temocillin",
-	"thiamphenicol",
-	"ticarcillin",
-    "ticarcillin/clavulanate",
-    "trimethoprim",
+  '[hide]',
+  'Others',
+  'Generic',
+  'Social',
+  'Unclassified',
+  "arsphenamine",
+  "azlocillin",
+  "carbacephem",
+  "ceftobiprole",
+  "clofazimine",
+  "flucloxacillin",
+  "furazolidone",
+  "fusidic",
+  "geldanamycin",
+  "grepafloxacin",
+  "herbimycin",
+  "lipopeptide",
+  "lomefloxacin",
+  "loracarbef",
+  "metacycline",
+  "methicillin",
+  "mezlocillin",
+  "nadifloxacin",
+  "nalidixic",
+  "pharmacology",
+  "piperacillin",
+  "platensimycin",
+  "posizolid",
+  "radezolid",
+  "roxithromycin",
+  "silver",
+  "sparfloxacin",
+  "spiramycin",
+  "sulfamethizole",
+  "sulfadimethoxine",
+  "sulfonamidochrysoidine",
+  "teicoplanin",
+  "teixobactin",
+  "temafloxacin",
+  "trimethoprim(bs)",
+  "trovafloxacin",
+  "temocillin",
+  "thiamphenicol",
+  "ticarcillin",
+  "ticarcillin/clavulanate"
 ].map{|item| item.downcase}
 
 html1 = File.read "db/antibiotics.html"
-dom1 = Nokogiri::HTML html1
-
-#define the antibiotics array
+dom1 = Nokogiri::HTML(html1)
 antibiotic_list = dom1.css('tr').map do |row|
-	row.text.strip.split.first
-end.compact.sort.uniq #alphabetize and remove repeats
+  row.text.strip.split.first
+end.compact
+.push(
+    "fidaxomicin", 
+    "clotrimazole", 
+    "fluconazole", 
+    "ketoconazole", 
+    "miconazole", 
+    "nystatin"
+).sort
+.uniq #alphabetize and remove repeats
 .reject do |item|
-	exclusions.include?(item.downcase)
-end
-.map{|item| item.downcase } #take all caps out
-.map{|item| item.sub('(bs)', '') } #remove junk at the end of some entries
-.reject{|item| item.end_with?('s')} #remove Abx classes
-.push("fidaxomicin", "clotrimazole", "fluconazole", "itraconazole", "ketoconazole", "nystatin")
+  exclusions.include?(item.downcase)
+end.sort
+.map{|item| item.downcase }
+.map{|item| item.sub(/(.*)\(bs\)$/, '\1')}
+.map{|item| item.sub('torezolid', 'tedizolid')}
+.map{|item| item.sub('sulfanilimide', 'sulfanilamide')}
+.map{|item| item.sub('rifampicin', 'rifampin')}
+.map{|item| item.sub('sulfasalazine', 'sulfadiazine')}
+.map{|item| item.sub('trimethoprim-sulfamethoxazole', 'sulfamethoxazole-trimethoprim')}
+.reject{|item| item.end_with?('s')}
+
+locations = values # reassign because two copies, don't want to change below
 
 #populate the antibiotics into table
-
 antibiotic_objects = antibiotic_list.map do |item|
-	Antibiotic.find_or_create_by name: item
+  Antibiotic.find_or_create_by name: item
 end
 
 floras = [

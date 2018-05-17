@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2018_05_14_212830) do
 
-  create_table "antibiotics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "antibiotics", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "efficacies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "flora_id"
-    t.bigint "antibiotic_id"
+  create_table "efficacies", force: :cascade do |t|
+    t.integer "flora_id"
+    t.integer "antibiotic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rating"
@@ -28,29 +28,25 @@ ActiveRecord::Schema.define(version: 2018_05_14_212830) do
     t.index ["flora_id"], name: "index_efficacies_on_flora_id"
   end
 
-  create_table "floras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "organ_system_id"
-    t.bigint "organism_id"
+  create_table "floras", force: :cascade do |t|
+    t.integer "organ_system_id"
+    t.integer "organism_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organ_system_id"], name: "index_floras_on_organ_system_id"
     t.index ["organism_id"], name: "index_floras_on_organism_id"
   end
 
-  create_table "organ_systems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "organ_systems", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "organisms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "organisms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "efficacies", "antibiotics"
-  add_foreign_key "efficacies", "floras"
-  add_foreign_key "floras", "organ_systems"
-  add_foreign_key "floras", "organisms"
 end
