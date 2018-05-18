@@ -13,14 +13,12 @@ class OrganSystemsController < ApplicationController
 
   def nasopharynx_trigger
     nasopharynx = OrganSystem.find_by(name: 'nasopharynx')
-  @nasofos =  Flora.where(organ_system: nasopharynx)
-    .map{ |flora| flora.organism.name }
+    @organisms = nasopharynx.organisms
   end
 
   def respiratory_trigger
     respiratory = OrganSystem.find_by(name: 'respiratory')
-  @respifos =  Flora.where(organ_system: respiratory)
-    .map{ |flora| flora.organism.name }
+    @organisms = respiratory.organisms
   end
 
   def stomach_trigger
@@ -32,32 +30,28 @@ class OrganSystemsController < ApplicationController
 
   def smallintestine_trigger
     smallintestine = OrganSystem.find_by(name: 'small intestine')
-  @sifos =  Flora.where(organ_system: smallintestine)
-    .map{ |flora| flora.organism.name }
+    @organisms = smallintestine.organisms
   end
 
   def largeintestine_trigger
     largeintestine = OrganSystem.find_by(name: 'large intestine')
-    @lifos = Flora.where(organ_system: largeintestine)
-      .map{ |flora| flora.organism.name }
+    @organisms = largeintestine.organisms
+
   end
 
   def urinary_trigger
-    urethra = OrganSystem.find_by(name: 'urethra')
-  @urifos =  Flora.where(organ_system: urethra)
-    .map{ |flora| flora.organism.name }
+    urinary = OrganSystem.find_by(name: 'urethra')
+    @organisms = urinary.organisms
   end
 
   def genitalia_trigger
     genitalia = OrganSystem.find_by(name: 'genitalia')
-    @genit = Flora.where(organ_system: genitalia)
-      .map{ |flora| flora.organism.name }
+    @organisms = genitalia.organisms
   end
 
   def skin_trigger
     skin = OrganSystem.find_by(name: 'skin')
-  @skifos =  Flora.where(organ_system: skin)
-    .map{ |flora| flora.organism.name }
+    @organisms = skin.organisms
   end
 
 end

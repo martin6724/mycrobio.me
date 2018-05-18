@@ -1,5 +1,5 @@
 
 <h1>Respiratory System Flora</h1>
-<% @respifos.each do |respifos, x| %>
-<div class="flora_results"> <%= link_to respifos, floras_show_organism_path(respifos) %></div>
+<% @organisms.each do |organism| %>
+  <div class="flora_results"> <%= link_to organism.name, organism_path(id: organism.name), remote: true %></div>
 <% end %>
