@@ -1,0 +1,63 @@
+
+<!-- Button trigger modal -->
+<button id="parentModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+			<% @search_results.each do |search_result| %>
+			<li> <%= search_result.name %></li>
+			<% end %>
+		</ul>
+
+		<hr>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#innerModal">
+		  Launch inner modal
+		</button> 
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="innerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="innerModalBody" class="modal-body">
+     	<h1>Happy things</h1>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+     	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+     	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+     	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+     	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+     	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     	<img src="http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/thumbs/thumbs_impossibly-cute-puppy-8.jpg" alt="cute stuff">
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

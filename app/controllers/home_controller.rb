@@ -1,11 +1,9 @@
 class HomeController < ApplicationController
 	def search
   		@search_results = Organism.where("name LIKE ?", "%#{params[:term]}%")
-	  		unless @search_results.empty?
-		    	render 'search_results'
-	  		else
-	  			puts "Nothing found."
-	  			redirect_to root_path
-	  		end	
+  		if @search_results.empty?
+  			# puts "Nothing found."
+  			redirect_to root_path, flash: { error: "We couldn't find any results for your search. Please try again."}
+  		end	
 	end
 end

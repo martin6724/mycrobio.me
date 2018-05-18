@@ -14,3 +14,7 @@
  *= require_self
  */
  
+
+.alert {
+	top: 100px;
+}
