@@ -25,8 +25,9 @@ class OrganSystemsController < ApplicationController
 
   def stomach_trigger
     stomach = OrganSystem.find_by(name: 'stomach')
-  @stomafos =  Flora.where(organ_system: stomach)
-    .map{ |flora| flora.organism.name }
+    @organisms = stomach.organisms
+  # @stomafos =  Flora.where(organ_system: stomach)
+  #   .map{ |flora| flora.organism.name }
   end
 
   def smallintestine_trigger
