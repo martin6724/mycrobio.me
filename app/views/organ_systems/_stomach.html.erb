@@ -1,5 +1,5 @@
 
 <h1>Stomach Flora</h1>
-<% @stomafos.each do |x| %>
-<div class="flora_results"> <%= x %></div>
+<% @stomafos.each do |stomafos, x| %>
+<div class="flora_results"> <%= link_to stomafos, floras_show_organism_path(stomafos) %></div>
 <% end %>
