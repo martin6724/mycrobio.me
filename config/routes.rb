@@ -27,7 +27,6 @@ get 'floras/index'
 get 'floras/show'
 get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
 
-
 resources :organisms
 
 # the floras partial is a page in the floras controller designed to organize all of the
