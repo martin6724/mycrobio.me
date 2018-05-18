@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
 get 'floras/index'
 get 'floras/show'
+get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
 
 
 
