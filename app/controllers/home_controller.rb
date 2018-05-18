@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 		  		@results.each do |result|
 		    		puts result.name #in terminal
 		    		flash[:success] = "Search successful!"
-      				#redirect_to result_path
+      				redirect_to floras_show_path
 		    	end
   			end
 	end
