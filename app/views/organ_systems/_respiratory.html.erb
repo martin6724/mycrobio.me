@@ -1,6 +1,5 @@
 
 <h1>Respiratory System Flora</h1>
-<% x = Flora.where(:organ_system_id => 5) %>
-<% x.each do |name| %>
-<p> <%= name.organism %> <p><br>
+<% @respifos.each do |x| %>
+<div class="flora_results"> <%= x %></div>
 <% end %>

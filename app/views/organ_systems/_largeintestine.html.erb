@@ -1,5 +1,4 @@
 <h1>Large Intestine Flora</h1>
-<% large_intestine = OrganSystem.find_by(name: 'large intestine')
-Flora.where(organ_system: large_intestine).each do |lifo| %>
-<p> <%= lifo.organism.name %> <p><br>
+<% @lifos.each do |x| %>
+<div class="flora_results"> <%= x %></div>
 <% end %>
