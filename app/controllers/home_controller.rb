@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	def search
-  		@results = Organism.where("name LIKE ?", "%#{params[:term]}%")
-	  		unless @results.empty?
+  		@search_results = Organism.where("name LIKE ?", "%#{params[:term]}%")
+	  		unless @search_results.empty?
 		    	render 'search_results'
 	  		else
 	  			puts "Nothing found."
