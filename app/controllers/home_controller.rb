@@ -4,12 +4,11 @@ class HomeController < ApplicationController
 	  		unless @results.empty?
 		  		@results.each do |result|
 		    		puts result.name #in terminal
-		    		flash[:success] = "Search successful!"
-      				
 		    	end
+		    	render 'kitty'
 	  		else
 	  			puts "Nothing found."
+	  			redirect_to root_path
 	  		end	
-			redirect_to root_path
 	end
 end
