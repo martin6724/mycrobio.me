@@ -1,6 +1,5 @@
 
 <h1>Epidermal Flora</h1>
-<% x = Flora.where(:organ_system_id => 4) %>
-<% x.each do |name| %>
-<p> <%= name.organism %> <p><br>
+<% @skifos.each do |x| %>
+<div class="flora_results"> <%= x %></div>
 <% end %>

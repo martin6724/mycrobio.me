@@ -12,7 +12,7 @@ body { background: #eef5fb !important; } /* Adding !important forces the browser
 
 // ****** Styling Image for fadeIn Animation ***** //
 .animated {
-  background-image: url(/css/images/logo.png);
+  background-image: image-url("logo.png");
   // background-repeat: no-repeat;
   // background-position: left top;
   // padding-top:95px;
