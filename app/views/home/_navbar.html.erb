@@ -20,14 +20,20 @@
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Male</a> -->
           <%= link_to "Male", male_path, :class => "nav-link" %>
-
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="#">Female -->
           <%= link_to "Female", female_path, :class => "nav-link" %>
-
             <!-- <span class="sr-only">(current)</span> -->
           </a>
+        </li>
+        <li>
+          <!--put search bar here-->
+          <%= form_tag root_path do %>
+          <%= search_field_tag :term %>
+          <%= submit_tag "Search by organism" %>
+          <% end %>
+          <%= params[:term] %>
         </li>
       </ul>
   </div>
