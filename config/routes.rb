@@ -22,7 +22,13 @@ Rails.application.routes.draw do
 
 
 
+
+
   # get '/floras/largeintestine' => 'floras#largeintestine'
+
+get 'floras/index'
+get 'floras/show'
+
 
 
 
