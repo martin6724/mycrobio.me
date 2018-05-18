@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get 'organ_systems/skin' => 'organ_systems#skin_trigger', as: 'skin'
   
   post '/search' => 'home#search'
-  get '/search' => 'home#search'
 
   # get '/floras/largeintestine' => 'floras#largeintestine'
 
