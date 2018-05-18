@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   get 'organ_systems/largeintestine' => 'organ_systems#largeintestine_trigger', as: 'largeintestine'
 
   get 'organ_systems/urinary' => 'organ_systems#urinary_trigger', as: 'urinary'
-  get 'organ_systems/female_genitalia' => 'organ_systems#genitalia_trigger', as: 'female_genitalia'
-  get 'organ_systems/male_genitalia' => 'organ_systems#genitalia_trigger', as: 'male_genitalia'
+  get 'organ_systems/genitalia' => 'organ_systems#genitalia_trigger', as: 'genitalia'
   get 'organ_systems/skin' => 'organ_systems#skin_trigger', as: 'skin'
 
 

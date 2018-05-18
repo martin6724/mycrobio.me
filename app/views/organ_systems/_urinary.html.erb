@@ -1,5 +1,5 @@
 
 <h1>Urinary System Flora</h1>
-<% @urifos.each do |x| %>
-<div class="flora_results"> <%= x %></div>
+<% @urifos.each do |urifos, x| %>
+<div class="flora_results"> <%= link_to urifos, floras_show_organism_path(urifos) %></div>
 <% end %>

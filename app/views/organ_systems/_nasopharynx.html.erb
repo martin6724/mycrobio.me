@@ -1,6 +1,6 @@
 
 <h1>Nasopharynx System Bacteria</h1>
 
- <% @nasofos.each do |x| %>
- <div class="flora_results"> <%= x %></div>
+ <% @nasofos.each do |nasofos, x| %>
+ <div class="flora_results"> <%= link_to nasofos, floras_show_organism_path(nasofos) %></div>
  <% end %>

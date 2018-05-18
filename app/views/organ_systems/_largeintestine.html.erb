@@ -1,4 +1,4 @@
 <h1>Large Intestine Flora</h1>
-<% @lifos.each do |x| %>
-<div class="flora_results"> <%= x %></div>
+<% @lifos.each do |lifos, x| %>
+<div class="flora_results"> <%= link_to lifos, floras_show_organism_path(lifos) %></div>
 <% end %>
