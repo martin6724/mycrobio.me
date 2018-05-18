@@ -34,6 +34,17 @@
           <%= submit_tag "Search by organism" %>
           <% end %>
           <%= params[:term] %>
+
+        <% if @results.empty? %>
+          <% flash[:error] = "No organisms were found. Try again!" %>
+            <%redirect_to root_path%>
+        <%else %>
+          <%@results.each do |result|%>
+            <%puts result.name #in terminal%>
+            <%flash[:success] = '(Search was successful)' %>
+             <% #redirect_to result_path%>
+          <%end%>
+        <%end%>
         </li>
       </ul>
   </div>
