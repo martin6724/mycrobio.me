@@ -11,7 +11,7 @@
       <div class="modal-body">
         <ul>
 			<% @search_results.each do |search_result| %>
-			<li> <%= search_result.name %></li>
+			<li> <%= link_to search_result.name, floras_show_organism_path(search_result) %></li>
 			<% end %>
 		</ul>
 
@@ -26,7 +26,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="modal fade" id="innerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">

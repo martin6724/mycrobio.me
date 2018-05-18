@@ -27,9 +27,7 @@ get 'floras/index'
 get 'floras/show'
 get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
 
-
 # the floras partial is a page in the floras controller designed to organize all of the
 # active record results for flora modals. Pending.
   # get 'floras_partial' => ''
-
 end

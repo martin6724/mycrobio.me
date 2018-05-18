@@ -17,12 +17,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
-
   </head>
     <body style="font-family: verdana;">
-
-        <!-- TODO need to work on this -->
     <% if flash[:error] %>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <%= flash[:error] %>
