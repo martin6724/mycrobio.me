@@ -29,11 +29,12 @@
         </li>
         <li>
           <!--put search bar here-->
-          <%= form_tag search_path do %>
-          <%= search_field_tag :term %>
-          <%= submit_tag "Search by organism" %>
+          <%= form_tag(search_path, remote: true) do %>
+            <%= search_field_tag :term %>
+            <%= submit_tag "Search by organism" %>
           <% end %>
           <%= params[:term] %>
+        
         </li>
       </ul>
   </div>

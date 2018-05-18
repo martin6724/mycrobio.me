@@ -21,18 +21,12 @@ Rails.application.routes.draw do
   get 'organ_systems/skin' => 'organ_systems#skin_trigger', as: 'skin'
   
   post '/search' => 'home#search'
-  
-
-
-
 
   # get '/floras/largeintestine' => 'floras#largeintestine'
 
 get 'floras/index'
 get 'floras/show'
 get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
-
-
 
 
 # the floras partial is a page in the floras controller designed to organize all of the
