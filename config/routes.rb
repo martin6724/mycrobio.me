@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get 'organ_systems/female_genitalia' => 'organ_systems#genitalia_trigger', as: 'female_genitalia'
   get 'organ_systems/male_genitalia' => 'organ_systems#genitalia_trigger', as: 'male_genitalia'
   get 'organ_systems/skin' => 'organ_systems#skin_trigger', as: 'skin'
-
+  
+  post 'home/index'
+  
 
 # the floras partial is a page in the floras controller designed to organize all of the
 # active record results for flora modals. Pending.
