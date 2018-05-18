@@ -1,0 +1,6 @@
+<h1>Organisms</h1>
+
+
+<% @floras.each do |flora, x|  %>
+<div class="organism_links"><p><%= link_to flora.organism.name, floras_show_organism_path(flora) %></p></div>
+<% end %>

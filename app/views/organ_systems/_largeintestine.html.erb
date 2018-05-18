@@ -1,5 +1,4 @@
 <h1>Large Intestine Flora</h1>
-<% x= Flora.where(:organ_system_id => 1) %>
-<% x.each do |name| %>
-<p><%= name.organism %></p>
+<% @lifos.each do |x| %>
+<div class="flora_results"> <%= x %></div>
 <% end %>

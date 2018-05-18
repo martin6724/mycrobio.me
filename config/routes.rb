@@ -12,19 +12,31 @@ Rails.application.routes.draw do
   get 'organ_systems/respiratory' => 'organ_systems#respiratory_trigger', as: 'respiratory'
   get 'organ_systems/stomach' => 'organ_systems#stomach_trigger', as: 'stomach'
   get 'organ_systems/smallintestine' => 'organ_systems#smallintestine_trigger', as: 'smallintestine'
+
   get 'organ_systems/largeintestine' => 'organ_systems#largeintestine_trigger', as: 'largeintestine'
+
   get 'organ_systems/urinary' => 'organ_systems#urinary_trigger', as: 'urinary'
   get 'organ_systems/female_genitalia' => 'organ_systems#genitalia_trigger', as: 'female_genitalia'
   get 'organ_systems/male_genitalia' => 'organ_systems#genitalia_trigger', as: 'male_genitalia'
   get 'organ_systems/skin' => 'organ_systems#skin_trigger', as: 'skin'
   
-  post 'home/index'
+  post '/search' => 'home#search'
   
+
+
+
+
+  # get '/floras/largeintestine' => 'floras#largeintestine'
+
+get 'floras/index'
+get 'floras/show'
+get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
+
+
+
 
 # the floras partial is a page in the floras controller designed to organize all of the
 # active record results for flora modals. Pending.
   # get 'floras_partial' => ''
 
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
