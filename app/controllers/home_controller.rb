@@ -8,8 +8,7 @@ class HomeController < ApplicationController
       			redirect_to root_path
 	  		else 
 		  		@results.each do |result|
-		    		# link_to result.name, result
-		    		puts result.name
+		    		puts result.name #in terminal
 		    		flash[:success] = "Search successful!"
       				#redirect_to result_path
 		    	end
