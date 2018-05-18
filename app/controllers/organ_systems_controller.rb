@@ -47,14 +47,8 @@ class OrganSystemsController < ApplicationController
     .map{ |flora| flora.organism.name }
   end
 
-  def female_genitalia_trigger
-    female_genitalia = OrganSystem.find_by(name: 'genitalia')
-    @femgenit = Flora.where(organ_system: genitalia)
-      .map{ |flora| flora.organism.name }
-  end
-
-  def male_genitalia_trigger
-    male_genitalia = OrganSystem.find_by(name: 'genitalia')
+  def genitalia_trigger
+    genitalia = OrganSystem.find_by(name: 'genitalia')
     @genit = Flora.where(organ_system: genitalia)
       .map{ |flora| flora.organism.name }
   end

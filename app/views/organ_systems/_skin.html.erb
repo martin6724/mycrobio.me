@@ -1,5 +1,5 @@
 
 <h1>Epidermal Flora</h1>
-<% @skifos.each do |x| %>
-<div class="flora_results"> <%= x %></div>
+<% @skifos.each do |skifos, x| %>
+<div class="flora_results"> <%= link_to skifos, floras_show_organism_path(skifos) %></div>
 <% end %>

@@ -1,5 +1,5 @@
 
 <h1>Small Intestine Flora</h1>
-<% @sifos.each do |x| %>
-<div class="flora_results"> <%= x %></div>
+<% @sifos.each do |sifos, x| %>
+<div class="flora_results"> <%= link_to sifos, floras_show_organism_path(sifos) %></div>
 <% end %>

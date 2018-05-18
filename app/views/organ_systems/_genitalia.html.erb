@@ -1,4 +1,4 @@
 <h1>Genital Flora</h1>
-<% @genit.each do |x| %>
-<div class="flora_results"> <%= x %></div>
+<% @genit.each do |genit, x| %>
+<div class="flora_results"> <%= link_to genit, floras_show_organism_path(genit) %></div>
 <% end %>
