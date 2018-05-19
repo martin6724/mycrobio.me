@@ -2,5 +2,6 @@
 <h1>Nasopharynx System Bacteria</h1>
 
 <% @organisms.each do |organism| %>
-  <div class="flora_results"> <%= link_to organism.name, organism_path(id: organism.name), remote: true %></div>
+  <div class="flora_results"> <%= link_to organism.name, organism_path(id: organism.id, organ_system_id: 3), remote: true %></div>
 <% end %>
+<!-- replace organism name with organism.id -->
