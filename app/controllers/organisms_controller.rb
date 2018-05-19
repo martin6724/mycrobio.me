@@ -5,7 +5,13 @@ class OrganismsController < ApplicationController
   end
 
   def show
-    @organism = Organism.find_by_name(params[:id])
+    @organism = Organism.find(params[:id])
+    flora = Flora.where(organism_id: params[:id], organ_system: params[:organ_system_id]).first
+    @efficacies = Efficacy.where(flora_id: flora.id).where('rating is not null')
   end
 
+  def search_show
+    @organism = Organism.find(params[:organism_id])
+    @floras = @organism.floras
+  end
 end
