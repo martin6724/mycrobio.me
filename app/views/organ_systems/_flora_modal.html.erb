@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <h1><%= @organ_system.name.capitalize %> System Flora</h1>
+        <h1><%= @organ_system.name.capitalize %> flora</h1>
 
         <% @organisms.each do |organism| %>
           <div class="flora_results"> <%= link_to organism.name.capitalize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %></div>
