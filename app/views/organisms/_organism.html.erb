@@ -1,3 +1,6 @@
 <%# @singleton_floras.each do |flora| %>
-  <h1 class="organism_header"> kitty<%= organism.name %> </h1>
+ <h1 class="organism_header"> <%= organism.name.capitalize %> </h1>
 <%# end %>
+
+<p><%= render 'efficacies/efficacy' %> </p>
+
