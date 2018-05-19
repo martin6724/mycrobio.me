@@ -36,7 +36,7 @@ $("#largeintestine").on("click", function(e) {
   human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
 });
 
-$("#urinary").on("click", function(e) {
+$("#urethra").on("click", function(e) {
   e.preventDefault();
   human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
 });
@@ -80,7 +80,7 @@ $("#flargeintestine").on("click", function(e) {
   female.send("camera.set", { objectId: "human_05_female_digestive_system-colon_ID", animate: true });
 });
 
-$("#furinary").on("click", function(e) {
+$("#furethra").on("click", function(e) {
   e.preventDefault();
   female.send("camera.set", { objectId: "human_05_female_urinary_system-urinary_system_ID", animate: true });
 });

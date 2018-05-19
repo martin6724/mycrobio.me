@@ -6,8 +6,8 @@
           <% @organ_systems.each_with_index do |organ_system, index| %>
 
             <li data-toggle="collapse" data-target="#<%=index+1%>" class="collapsed active">
-              <%= link_to "#", :id => "f#{organ_system.name}", remote: true do %>
-              <%= content_tag :span, organ_system.name.capitalize, :class => "arrow" %>
+              <%= link_to "#", :id => "f#{organ_system.name.delete(' ')}", remote: true do %>
+              <%= content_tag :span, organ_system.name.titleize, :class => "arrow" %>
               <% end %>
             </li>
 
