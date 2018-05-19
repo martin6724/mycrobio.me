@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'organ_systems/create'
   get 'home/about' => 'home#about', as: 'about'
   get 'home/index' => 'home#index', as: 'home'
+  get 'home/index2' => 'home#index2', as: 'home2'
   root 'home#index'
 
   get 'organ_systems/female_index' => 'organ_systems#female_index' , as: 'female'
