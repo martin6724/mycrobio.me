@@ -82,7 +82,7 @@ end
         lookup.map do |locations, body_spot|
             if locations.include?(location)
                 {
-            wiki_organ_system_name: location, 
+                    wiki_organ_system_name: location, 
                     organ_system_name: body_spot, 
                     organism_name: bug
                 }
@@ -97,81 +97,99 @@ base_data.each do |item|
     puts Flora.find_or_create_by organism: organism, organ_system: organ_system
 end
 #reject deprecated antibiotics
-exclusions = [
-  '[hide]',
-  'Others',
-  'Generic',
-  'Social',
-  'Unclassified',
-  "arsphenamine",
-  "azlocillin",
-  "carbacephem",
-  "ceftobiprole",
-  "clofazimine",
-  "flucloxacillin",
-  "furazolidone",
-  "fusidic",
-  "geldanamycin",
-  "grepafloxacin",
-  "herbimycin",
-  "lipopeptide",
-  "lomefloxacin",
-  "loracarbef",
-  "metacycline",
-  "methicillin",
-  "mezlocillin",
-  "nadifloxacin",
-  "nalidixic",
-  "pharmacology",
-  "piperacillin",
-  "platensimycin",
-  "posizolid",
-  "radezolid",
-  "roxithromycin",
-  "silver",
-  "sparfloxacin",
-  "spiramycin",
-  "sulfamethizole",
-  "sulfadimethoxine",
-  "sulfonamidochrysoidine",
-  "teicoplanin",
-  "teixobactin",
-  "temafloxacin",
-  "trimethoprim(bs)",
-  "trovafloxacin",
-  "temocillin",
-  "thiamphenicol",
-  "ticarcillin",
-  "ticarcillin/clavulanate"
-].map{|item| item.downcase}
+# exclusions = [
+#   '[hide]',
+#   'Others',
+#   'Generic',
+#   'Social',
+#   'Unclassified',
+#   "arsphenamine",
+#   "azlocillin",
+#   "carbacephem",
+#   "ceftobiprole",
+#   "clofazimine",
+#   "flucloxacillin",
+#   "furazolidone",
+#   "fusidic",
+#   "geldanamycin",
+#   "grepafloxacin",
+#   "herbimycin",
+#   "lipopeptide",
+#   "lomefloxacin",
+#   "loracarbef",
+#   "metacycline",
+#   "methicillin",
+#   "mezlocillin",
+#   "nadifloxacin",
+#   "nalidixic",
+#   "pharmacology",
+#   "piperacillin",
+#   "platensimycin",
+#   "posizolid",
+#   "radezolid",
+#   "roxithromycin",
+#   "silver",
+#   "sparfloxacin",
+#   "spiramycin",
+#   "sulfamethizole",
+#   "sulfadimethoxine",
+#   "sulfonamidochrysoidine",
+#   "teicoplanin",
+#   "teixobactin",
+#   "temafloxacin",
+#   "trimethoprim(bs)",
+#   "trovafloxacin",
+#   "temocillin",
+#   "thiamphenicol",
+#   "ticarcillin",
+#   "ticarcillin/clavulanate"
+# ].map{|item| item.downcase}
 
-html1 = File.read "db/antibiotics.html"
-dom1 = Nokogiri::HTML(html1)
-antibiotic_list = dom1.css('tr').map do |row|
-  row.text.strip.split.first
-end.compact
-.push(
-    "fidaxomicin", 
-    "clotrimazole", 
-    "fluconazole", 
-    "ketoconazole", 
-    "miconazole", 
-    "nystatin"
-).sort
-.uniq #alphabetize and remove repeats
-.reject do |item|
-  exclusions.include?(item.downcase)
-end.sort
-.map{|item| item.downcase }
-.map{|item| item.sub(/(.*)\(bs\)$/, '\1')}
-.map{|item| item.sub('torezolid', 'tedizolid')}
-.map{|item| item.sub('sulfanilimide', 'sulfanilamide')}
-.map{|item| item.sub('rifampicin', 'rifampin')}
-.map{|item| item.sub('sulfasalazine', 'sulfadiazine')}
-.map{|item| item.sub('trimethoprim-sulfamethoxazole', 'sulfamethoxazole-trimethoprim')}
-.reject{|item| item.end_with?('s')}
+# html1 = File.read "db/antibiotics.html"
+# dom1 = Nokogiri::HTML(html1)
+# antibiotic_list = dom1.css('tr').map do |row|
+#   row.text.strip.split.first
+# end.compact
+# .push(
+#     "fidaxomicin", 
+#     "clotrimazole", 
+#     "fluconazole", 
+#     "ketoconazole", 
+#     "miconazole", 
+#     "nystatin"
+# ).sort
+# .uniq #alphabetize and remove repeats
+# .reject do |item|
+#   exclusions.include?(item.downcase)
+# end.sort
+# .map{|item| item.downcase }
+# .map{|item| item.sub(/(.*)\(bs\)$/, '\1')}
+# .map{|item| item.sub('torezolid', 'tedizolid')}
+# .map{|item| item.sub('sulfanilimide', 'sulfanilamide')}
+# .map{|item| item.sub('rifampicin', 'rifampin')}
+# .map{|item| item.sub('sulfasalazine', 'sulfadiazine')}
+# .map{|item| item.sub('trimethoprim-sulfamethoxazole', 'sulfamethoxazole-trimethoprim')}
+# .reject{|item| item.end_with?('s')}
 
 locations = values # reassign because two copies, don't want to change below
+antibiotic_list = [aminoglycosides,
+                  cephalosporins,
+                  carbapenems,
+                  aztreonam,
+                  penicillins,
+                  antistaphylococcal penicillins,
+                  fluoroquinolones,
+                  lincosamides,
+                  linezolid,
+                  macrolides,
+                  nitrofurantoin,
+                  metronidazole,
+                  chloramphenicol,
+                  fosfomycin,
+                  vancomycin,
+                  strptogramins,
+                  sulfonamides,
+                  tetracyclines]
 
 #populate the antibiotics into table
 antibiotic_objects = antibiotic_list.map do |item|
@@ -338,7 +356,9 @@ end
 [
   [13244, 1], #urinary
   [12542, 1],
-  [5768, 1]
+  [5768, 1], #c sordellii
+  [13243 ,1],
+  [12961 ,1],
 ].each do |efficacy_id,  rating|
   efficacy = Efficacy.find(efficacy_id)
   if efficacy.nil?
@@ -446,6 +466,12 @@ end
   [9158, 3],
   [8312, 3],
   [3095, 3],
+  [3232, 3], #c sordellii
+  [2245, 3],
+  [4219, 3],
+  [3796, 3],
+  [976, 3],
+  [3091, 3],
 ].each do |efficacy_id,  rating|
   efficacy = Efficacy.find(efficacy_id)
   if efficacy.nil?

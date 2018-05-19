@@ -1,4 +1,4 @@
-abx_families = {
+abx_family = {
   'aminoglycoside' => [
   'amikacin',
   'capreomycin',

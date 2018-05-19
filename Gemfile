@@ -9,8 +9,8 @@ gem 'rails', '~> 5.2.0'
 
 
 
-# gem 'sqlite3', group: :development
-gem 'mysql2', group: :development
+gem 'sqlite3', group: :development
+# gem 'mysql2', group: :development
 
 
 
