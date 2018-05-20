@@ -29,8 +29,8 @@
         <li>
           <!--put search bar here-->
           <%= form_tag(search_path, remote: true) do %>
-            <%= search_field_tag :term %>
-            <%= submit_tag "Search by organism" %>
+            <%= search_field_tag :term  %>
+            <%= submit_tag "Search by organism", :class => "btn btn-outline-light"%>
           <% end %>
           <%= params[:term] %>
 
