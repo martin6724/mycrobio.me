@@ -1,5 +1,5 @@
 .organ_system_bg {
-  background: radial-gradient(#a35994, #674868, #06143B);
+  background: radial-gradient(#a35994, #a35994, #06143B);
   width: 100%;
   height: 100%;
 }
@@ -7,28 +7,51 @@
 #floraModal {
   //
   color: white;
-
+}
   .modal-dialog {
     width: 100em;
   }
 
+
+
+.modal-content {
+  background: linear-gradient(#06143B, #381c2a);
+}
+
+.modal-body {
+  text-align: center;
 }
 
 .modal-header {
   // HEADER WITH LOGO, GRAY
-  background-color: #2e353d;
+  // background: linear-gradient(to right, #06143B, #a35994);
+  background: transparent;
   border-bottom: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
+  .modal-title {
+    margin-left: 3rem;
 
-.modal-body {
-  background: radial-gradient(#06143B, #381c2a, #381c2a);
-  // background-repeat: no-repeat;
-  text-align: center;
+  }
+
+
+
+// .modal-body {
+//   // background: radial-gradient(#06143B, #381c2a, #381c2a);
+//   background-repeat: no-repeat;
+//   text-align: center};
+
 
   .flora_results {
-    background: rgba(34, 38, 40, 0.5);
+    // background: rgba(34, 38, 40, 0.5);
     color: white;
     padding: 2rem;
+    text-align: center;
+}
+    a:hover {
+      color: lightblue;
+    }
     // display: inline-grid;
     // align-content: center;
     // grid-template-columns: 3rem 3rem 3rem;
@@ -36,14 +59,25 @@
 
     a {
       color: white;
+      text-align: center;
     }
-  }
 
-}
+
+
 
 .modal-footer {
   background-color: #2e353d;
   height: 3em;
+}
+
+  button.close {
+    font-size: 2em;
+    color: white;
+  }
+
+    .close:focus, .close:hover {
+      color: white;
+  }
 
   .btn.btn-lg.btn-primary {
     font-size: 1em;
@@ -51,9 +85,3 @@
     background: #BF5C97;
     padding: 0;
   }
-}
-
-button.close {
-  font-size: 1em;
-  background-color: transparent;
-}

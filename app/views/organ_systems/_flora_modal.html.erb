@@ -1,4 +1,4 @@
-stylesheet_link_tag("organ_systems.scss")
+<!-- stylesheet_link_tag("organ_systems.scss") -->
 
 <!-- Modal -->
 <div class="modal fade michelle" id="floraModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -6,8 +6,8 @@ stylesheet_link_tag("organ_systems.scss")
     <div class="modal-content">
       <div class="modal-header">
         <%= image_tag "logo.png", :style => 'width: 250px; height: 50px;' %>
-        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;">
+        <!-- <h2 class="modal-title" id="exampleModalLongTitle"><%#= @organ_system.name.titleize %> Flora</h2> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
 
@@ -16,12 +16,16 @@ stylesheet_link_tag("organ_systems.scss")
       </div>
 
       <div class="modal-body">
+        <h1><%= @organ_system.name.titleize %> System Flora</h1>
+        <p>Click on an organism to browse antibiotics and efficacy ratings.</p>
 
-        <% @organisms.each do |organism| %>
-          <div class="flora_results"> <%= link_to organism.name.titleize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %></div>
-        <% end %>
-      </div>
+        <div class="flora_results">
+          <% @organisms.each do |organism| %>
+        <p>  <%= link_to organism.name.titleize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %> <p>
+          <% end %>
+        </div>
 
     </div>
   </div>
+</div>
 </div>

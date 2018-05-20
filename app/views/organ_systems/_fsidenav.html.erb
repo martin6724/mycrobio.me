@@ -1,13 +1,13 @@
 <div class="nav-side-menu">
-    <!-- <div class="brand">Organ System</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i> -->
+
+
     <div class="menu-list" >
         <ul id="menu-content" class="menu-content collapse out">
           <% @organ_systems.each_with_index do |organ_system, index| %>
 
             <li data-toggle="collapse" data-target="#<%=index+1%>" class="collapsed active">
               <%= link_to "#", :id => "f#{organ_system.name.delete(' ')}", remote: true do %>
-              <%= content_tag :span, organ_system.name.titleize, :class => "arrow" %>
+              <%= organ_system.name.titleize %>
               <% end %>
             </li>
 
