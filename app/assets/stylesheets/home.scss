@@ -6,10 +6,11 @@
 // body { background: #eef5fb !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 .bg {
   background-image: url(/assets/home-page.jpg);
+  background-repeat:no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-size: cover;
   -o-background-size: cover;
+  min-height: 100vh;
 }
 
 .navbar { margin-bottom: 0 }
