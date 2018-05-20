@@ -1,3 +1,7 @@
+.organ_system_bg {
+  background-image: url(/assets/humanbackground1.png);
+}
+
 #floraModal {
   //
   color: white;
@@ -6,17 +10,17 @@
 
 .modal-header {
   // HEADER WITH LOGO, GRAY
-  background-color: #06143B;
+  background-color: #2e353d;
   border-bottom: 0;
 }
 
 .modal-body {
-  background: radial-gradient(#381c2a, #06143B, #2e353d);
+  background: radial-gradient(#06143B, #381c2a, #381c2a);
   // background-repeat: no-repeat;
   text-align: center;
 
   .flora_results {
-    background: rgba(34, 38, 40, 0.8);
+    background: rgba(34, 38, 40, 0.5);
     color: white;
     padding: 2rem;
     // display: inline-grid;
@@ -32,7 +36,7 @@
 }
 
 .modal-footer {
-  background: linear-gradient(#2e353d, #381c2a);
+  background-color: #2e353d;
   height: 3em;
 
   .btn.btn-lg.btn-primary {

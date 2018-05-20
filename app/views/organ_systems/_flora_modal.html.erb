@@ -15,7 +15,7 @@ stylesheet_link_tag("organ_systems.scss")
         <h1><%= @organ_system.name.capitalize %> flora</h1>
 
         <% @organisms.each do |organism| %>
-          <div class="flora_results"> <%= link_to organism.name.capitalize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %></div>
+          <div class="flora_results"> <%= link_to organism.name.titleize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %></div>
         <% end %>
       </div>
       <div class="modal-footer">
