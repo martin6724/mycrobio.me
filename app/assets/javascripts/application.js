@@ -15,6 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+// });

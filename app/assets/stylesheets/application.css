@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
- 
+ * {
+ 	font-family: 'Montserrat', sans-serif;
+ }
 
 .alert {
 	top: 100px;
+}
+
+.about {
+	background-color: 
 }
