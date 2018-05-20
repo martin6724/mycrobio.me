@@ -3,88 +3,18 @@
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i> -->
     <div class="menu-list" style="padding-top:40px;">
         <ul id="menu-content" class="menu-content collapse out">
-            <li data-toggle="collapse" data-target="#1" class="collapsed active">
-              <%= link_to "#", :id => "fnasopharynx", remote: true do %>
-              <%= content_tag :span, "Nasopharynx", :class => "arrow" %>
+          <% @organ_systems.each_with_index do |organ_system, index| %>
+
+            <li data-toggle="collapse" data-target="#<%=index+1%>" class="collapsed active">
+              <%= link_to "#", :id => "f#{organ_system.name.delete(' ')}", remote: true do %>
+              <%= content_tag :span, organ_system.name.titleize, :class => "arrow" %>
               <% end %>
             </li>
 
-            <ul class="sub-menu collapse" id="1">
-                <li class="activenasopharynx"> <%= link_to "System Flora", nasopharynx_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-
+            <ul class="sub-menu collapse" id="<%=index+1%>">
+                <li> <%= link_to "System Flora", organ_system_path(organ_system.id), :id => '#floraModal', "data-toggle" => "modal", remote: true %></li>
             </ul>
-
-            <li data-toggle="collapse" data-target="#2" class="collapsed active">
-              <%= link_to "#", :id => "frespiratory", remote: true do %>
-              <%= content_tag :span, "Respiratory", :class => "arrow" %>
-              <% end %>
-            </li>
-
-            <ul class="sub-menu collapse" id="2">
-              <li class="activerespiratory"> <%= link_to "System Flora", respiratory_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-
-            </ul>
-
-            <li data-toggle="collapse" data-target="#3" class="collapsed active">
-            <%=  link_to "#", :id => "fstomach", remote: true do %>
-              <%= content_tag :span, "Stomach", :class => "arrow" %>
-              <% end %>
-            </li>
-            <ul class="sub-menu collapse" id="3">
-              <li class="activestomach"> <%= link_to "System Flora", stomach_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-
-            </ul>
-
-            <li data-toggle="collapse" data-target="#4" class="collapsed active">
-              <%=  link_to "#", :id => "fsmallintestine", remote: true do %>
-              <%= content_tag :span, "Small Intestine", :class => "arrow" %>
-              <% end %>
-            </li>
-
-            <ul class="sub-menu collapse" id="4">
-              <li class="activesmallintestine"> <%= link_to "System Flora", smallintestine_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-            </ul>
-
-            <li data-toggle="collapse" data-target="#5" class="collapsed active">
-            <%=  link_to "#", :id => "flargeintestine", remote: true do %>
-              <%= content_tag :span, "Large Intestine", :class => "arrow" %>
-              <% end %>
-            </li>
-            <ul class="sub-menu collapse" id="5">
-              <li class="activelargeintestine"> <%= link_to "System Flora", largeintestine_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-
-            </ul>
-
-            <li data-toggle="collapse" data-target="#6" class="collapsed active">
-              <%=  link_to "#", :id => "furinary", remote: true do %>
-              <%= content_tag :span, "Urinary", :class => "arrow" %>
-              <% end %>
-            </li>
-            <ul class="sub-menu collapse" id="6">
-              <li class="activeurinary"> <%= link_to "System Flora", urinary_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-
-            </ul>
-
-            <li data-toggle="collapse" data-target="#7" class="collapsed active">
-            <%=  link_to "#", :id => "fgenitalia", remote: true do %>
-              <%= content_tag :span, "Genitalia", :class => "arrow" %>
-              <% end %>
-            </li>
-
-            <ul class="sub-menu collapse" id="7">
-              <li class="activegenitalia"> <%= link_to "System Flora", genitalia_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-
-            </ul>
-
-            <li data-toggle="collapse" data-target="#8" class="collapsed active">
-              <%=  link_to "#", :id => "fskin", remote: true do %>
-              <%= content_tag :span, "Skin", :class => "arrow" %>
-              <% end %>
-            </li>
-            <ul class="sub-menu collapse" id="8">
-              <li class="activeskin"> <%= link_to "System Flora", skin_path, :id => '#exampleModalLong', "data-toggle" => "modal", remote: true %></li>
-            </ul>
-
+          <% end %>
         </ul>
     </div>
 </div>

@@ -30,20 +30,20 @@
       <p>The human body is home to approximately 39 trillion bacteria. Click to explore!</p>
       <div class="row d-flex">
         <div class="col-3 col align-self-center ">
-          <%= link_to "MALE", male_path, :class => "btn btn-primary btn-lg btn-block responsive-width" %>
+          <%= link_to "MALE", male_organ_systems_path, :class => "btn btn-primary btn-lg btn-block responsive-width" %>
         </div>
         <div class="col-6 animated fadeIn">
           <%= image_tag "male-female-body-2.jpg", :onclick => "myFunction()", :class => "img-fluid" %>
         </div>
         <div class="col-3 col align-self-center">
           <!-- <a class="btn btn-primary btn-lg btn-block responsive-width" href="organ_systems/female_index" role="button">FEMALE</a> -->
-          <%= link_to "FEMALE", female_path, :class => "btn btn-primary btn-lg btn-block responsive-width" %>
+          <%= link_to "FEMALE", female_organ_systems_path, :class => "btn btn-primary btn-lg btn-block responsive-width" %>
         </div>
       </div>
 
     </div>
     <div class="card-footer text-muted text-center">
-    ©2018 Mycrobio.me 
+    ©2018 Mycrobio.me
     </div>
   </body>
 </html>

@@ -1,6 +1,7 @@
 
 <h1>Nasopharynx System Bacteria</h1>
 
- <% @nasofos.each do |nasofos, x| %>
- <div class="flora_results"> <%= link_to nasofos, floras_show_organism_path(nasofos) %></div>
- <% end %>
+<% @organisms.each do |organism| %>
+  <div class="flora_results"> <%= link_to organism.name, organism_path(id: organism.id, organ_system_id: 3), remote: true %></div>
+<% end %>
+<!-- replace organism name with organism.id -->
