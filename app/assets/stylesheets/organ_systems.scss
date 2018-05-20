@@ -1,0 +1,49 @@
+#floraModal {
+  //
+  color: white;
+
+}
+
+.modal-header {
+  // HEADER WITH LOGO, GRAY
+  background-color: #2e353d;
+  border-bottom: 0;
+}
+
+.modal-body {
+  background: linear-gradient(#2e353d, #381c2a);
+  // background-repeat: no-repeat;
+  text-align: center;
+
+  .flora_results {
+    background: rgba(34, 38, 40, 0.8);
+    color: white;
+    padding: 2rem;
+    // display: inline-grid;
+    // align-content: center;
+    // grid-template-columns: 3rem 3rem 3rem;
+    // columns: start
+
+    a {
+      color: white;
+    }
+  }
+
+}
+
+.modal-footer {
+  background: linear-gradient(#2e353d, #381c2a);
+  height: 3em;
+
+  .btn.btn-lg.btn-primary {
+    font-size: 1em;
+    line-height: 0.5em;
+    background: #BF5C97;
+    padding: 0;
+  }
+}
+
+button.close {
+  font-size: 1em;
+  background-color: transparent;
+}

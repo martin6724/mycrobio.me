@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'home/about' => 'home#about', as: 'about'
   get 'home/index' => 'home#index', as: 'home'
   get 'home/index2' => 'home#index2', as: 'home2'
-  root 'home#index'
+  root 'home#index2'
   post '/search' => 'home#search'
   get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
 
@@ -22,5 +22,4 @@ Rails.application.routes.draw do
 # the floras partial is a page in the floras controller designed to organize all of the
 # active record results for flora modals. Pending.
   # get 'floras_partial' => ''
-
 end
