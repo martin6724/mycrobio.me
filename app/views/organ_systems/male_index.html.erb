@@ -2,7 +2,6 @@
 <head>
 
   <style type="text/css">
-  body { background: #eef5fb !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 
   .btn-primary {background: #2e353d !important; border: #2e353d !important ;}
   .btn {
@@ -11,11 +10,14 @@
   .responsive-width {
     font-size: 1.7vw;
   }
+  .navbar-inner {
+      background-color:transparent !important;
+  }
   </style>
 
 </head>
 
-<body >
+<body class="organ_system_bg">
   <%= render "home/navbar" %>
   <!-- Page Content -->
 
@@ -32,11 +34,11 @@
         <br>
 
 
-        <iframe
+        <iframe class="container"
     id="embedded-human"
     frameBorder="0"
     width="700"
-    height="500"
+    height="650"
     allowFullScreen="true"
     src="https://human.biodigital.com/widget/?be=2X2z&background.colors=0,0,0,0,0,0,0,0&ui-fullscreen=false&ui-share=false&dk=e2c952a0399972a17607c3a82fb804513d551c19">
   </iframe>
