@@ -1,7 +1,7 @@
 <div class="efficacy_display">
 <p><% @efficacies.each do |e| %> </p>
-Antibiotic: <%= e.antibiotic.name %><br>
-Rating: <%= e.rating %>
+Antibiotic: <%= e.antibiotic.name.titleize %><br>
+Efficacy Rating (out of 3): <%= e.rating %>
 <br>
 <%#= p e.inspect %>
 <% end %>

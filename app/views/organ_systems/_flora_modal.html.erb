@@ -10,17 +10,18 @@ stylesheet_link_tag("organ_systems.scss")
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;">
           <span aria-hidden="true">&times;</span>
         </button>
+
+<!-- "data-toggle" => "modal" -->
+
       </div>
+
       <div class="modal-body">
-        <h1><%= @organ_system.name.capitalize %> flora</h1>
 
         <% @organisms.each do |organism| %>
           <div class="flora_results"> <%= link_to organism.name.titleize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %></div>
         <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-lg btn-primary" data-dismiss="modal">Close</button>
-      </div>
+
     </div>
   </div>
 </div>

@@ -1,6 +1,14 @@
-<%# @singleton_floras.each do |flora| %>
- <h1 class="organism_header"> <%= organism.name.capitalize %> </h1>
-<%# end %>
 
-<p><%= render 'efficacies/efficacy' %> </p>
 
+  <!-- <h1><%#= @organ_system.name.capitalize %> Flora</h1> -->
+
+  <%# @singleton_floras.each do |flora| %>
+   <h1 class="organism_header"> <%= organism.name.capitalize %> </h1>
+  <%# end %>
+
+  <p><%= render 'efficacies/efficacy' %> </p>
+
+<p>
+  <%= link_to "Back to flora", organ_system_path(organ_system_id), class: 'btn btn-primary internalback', remote: true %>
+
+  <p>
