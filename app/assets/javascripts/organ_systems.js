@@ -26,12 +26,12 @@ $("#stomach").on("click", function(e) {
   human.send("camera.set", { objectId: "human_05_male_digestive_system-stomach_ID", animate: true });
 });
 
-$("#small intestine").on("click", function(e) {
+$("#smallintestine").on("click", function(e) {
   e.preventDefault();
   human.send("camera.set", { objectId: "human_05_male_digestive_system-small_intestines_ID", animate: true });
 });
 
-$("#large intestine").on("click", function(e) {
+$("#largeintestine").on("click", function(e) {
   e.preventDefault();
   human.send("camera.set", { objectId: "human_05_male_digestive_system-colon_ID", animate: true });
 });
