@@ -2,13 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// ****** Styling Background ***** //
-body { background: #eef5fb !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
-
+// // ****** Styling Background ***** //
+// body { background: #eef5fb !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+body {
+  background-image: url(/assets/home-page.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
 .navbar { margin-bottom: 0 }
 // ****** Styling Buttons ***** //
-
-
 
 // ****** Styling Image for fadeIn Animation ***** //
 .animated {
