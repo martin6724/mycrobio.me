@@ -6,6 +6,10 @@
 
 }
 
+.progress-bar {
+  height: 1rem;
+}
+
 .progress-bar.progress-bar-success.progress-bar-striped {
   text-align: center;
   background-color: #175c06;
@@ -19,4 +23,5 @@
 .progress-bar.progress-bar-danger.progress-bar-striped {
   text-align: center;
   background-color: #d5370d;
+
   }
