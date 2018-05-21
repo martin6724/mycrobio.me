@@ -1,5 +1,5 @@
 <% @organism.floras.includes(:organ_system).each do |flora| %>
-  <div class="search_results" style="width: 45%; background-color: lightblue; display: inline-block;">
+  <div class="search_results">
     <h4><%= flora.organ_system.name.capitalize %></h4>
     <%= flora.efficacies.count %>
     <% flora.efficacies do |efficacy| %>
