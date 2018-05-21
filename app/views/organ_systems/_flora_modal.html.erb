@@ -16,12 +16,14 @@
       </div>
 
       <div class="modal-body">
-        <h1><%= @organ_system.name.titleize %> System Flora</h1>
+        <h1><%= @organ_system.name.titleize %> Flora</h1>
         <p>Click on an organism to browse antibiotics and efficacy ratings.</p>
 
         <div class="flora_results">
           <% @organisms.each do |organism| %>
-        <p>  <%= link_to organism.name.titleize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %> <p>
+
+             <%= image_tag "https://agile-eyrie-52775.herokuapp.com/thumb_#{organism.name.gsub(' ', '_')}.jpg" %>
+        <p>  <%= link_to organism.name.capitalize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %> <p>
           <% end %>
         </div>
 
