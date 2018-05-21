@@ -1,4 +1,6 @@
 <div class="efficacy_display">
+  <p>Antibiotics are organized from most efficacious (green), to least (red).<br>
+    Note: rating for a single antibiotic can vary by organ system. </p>
   <!-- <h1>Antibiotics for <%#= @organism.name %></h1> -->
 <p><% @efficacies.order(rating: :desc).each do |e| %> </p>
 <h2><%= e.antibiotic.name.titleize %><br></h2>
