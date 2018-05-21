@@ -1,16 +1,27 @@
-<% @organism.organ_systems.each do |organ_system| %>
-<% scoped_flora = @floras.select { |flora| flora.organ_system_id == organ_system.id}.first %>
-
-<div class="search_results">
-  <!-- style="width: 45%; display: inline-block;" -->
-
-  <h4>Antibiotics for <% @organism.name %> <%= organ_system.name.capitalize %>:</h4>
-  <% scoped_flora.antibiotics.each do |antibiotic| %>
-  <% efficacy = antibiotic.efficacies.select{|x| x.flora_id == scoped_flora.id && !x.rating.nil?}.first %>
-  <% next if efficacy.nil? %>
-    Antibiotic Name: <%= antibiotic.name %> <br>
-    Efficacy Rating: <%= efficacy.rating%>
-    <br>
-  <% end %>
-</div>
+<% @organism.floras.includes(:organ_system).each do |flora| %>
+  <div class="search_results" style="width: 45%; background-color: lightblue; display: inline-block;">
+    <h4><%= flora.organ_system.name.capitalize %></h4>
+    <%= flora.efficacies.count %>
+    <% flora.efficacies do |efficacy| %>
+      name: <%= efficacy.antibiotic.name %> <br>
+      rating: <%= efficacy.rating %> <br>
+    <% end %>
+  </div>
 <% end %>
+
+
+<%# @organism.organ_systems.each do |organ_system| %>
+<%# scoped_flora = @floras.select { |flora| flora.organ_system_id == organ_system.id}.first %>
+
+<!-- <div class="search_results" style="width: 45%; background-color: lightblue; display: inline-block;"> -->
+
+  <!-- <h4><%# organ_system.name.capitalize %></h4> -->
+  <%# scoped_flora.antibiotics.each do |antibiotic| %>
+    <%# efficacy = antibiotic.efficacies.select{|x| x.flora_id == scoped_flora.id && !x.rating.nil?}.first %>
+    <%# next if efficacy.nil? %>
+    <!-- name: <%# antibiotic.name %> <br> -->
+    <!-- rating: <%# efficacy.rating%> -->
+    <!-- <br> -->
+  <%# end %>
+<!-- </div> -->
+<%# end %>
