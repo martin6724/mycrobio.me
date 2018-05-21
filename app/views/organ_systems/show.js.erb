@@ -1,2 +1,8 @@
 $('#modal-container').html("<%= j render 'flora_modal' %>");
 $('#floraModal').modal('show');
+
+$("#closeit.close").click(function() {
+  $('#floraModal').modal('hide');
+  $('body').removeClass('modal-open');
+  $('.modal-backdrop').remove();
+});

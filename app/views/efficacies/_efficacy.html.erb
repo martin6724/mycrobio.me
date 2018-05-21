@@ -1,8 +1,31 @@
 <div class="efficacy_display">
 <p><% @efficacies.each do |e| %> </p>
-Antibiotic: <%= e.antibiotic.name.titleize %><br>
-Efficacy Rating (out of 3): <%= e.rating %>
+Antibiotic: <h2><%= e.antibiotic.name.titleize %><br></h2>
+
+Efficacy Rating (out of 3):
 <br>
 <%#= p e.inspect %>
+
+
+<% if e.rating == 3  %><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="90"
+  aria-valuemin="0" aria-valuemax="100" style="width:90%">
+<p>3</p> </div>
+
+<% elsif e.rating == 2 %><div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60"
+  aria-valuemin="0" aria-valuemax="100" style="width:60%">
+<p>2</p> </div>
+
+<% elsif e.rating == 1 %><div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20"
+  aria-valuemin="0" aria-valuemax="100" style="width:20%">
+<p>1</p> </div>
+
+<% else %>
+<p>nada</p>
 <% end %>
-</div>
+
+<% end %>
+
+</style>
+</head>
+<body>
+  </div>
