@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home/index2' => 'home#index2', as: 'home2'
   root 'home#index2'
   post '/search' => 'home#search'
+  # get '/search' => 'home#search_show', as: 'research'
   get 'floras/show/:id' => 'floras#show', as: 'floras_show_organism'
 
   resources :organ_systems, only: [:index, :show, :create] do

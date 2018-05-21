@@ -11,7 +11,7 @@
       <div class="modal-body">
 <h3>Select an organism to discover where it lives in the body and more.</h3><br>
           <% @search_results.each do |search_result| %>
-            <p><%= link_to search_result.name.capitalize, organism_search_show_path(search_result.id), remote: true %><p>
+            <p><%= link_to search_result.name.capitalize, organism_search_show_path(search_result.id, term: params[:term]), remote: true %><p>
           <% end %>
 
 
