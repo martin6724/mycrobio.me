@@ -85,3 +85,15 @@
     background: #BF5C97;
     padding: 0;
   }
+
+  button.close2 {
+    background-color:  #ab4b84 !important;
+    // color: white;
+    border: 0;
+    border-color: transparent;
+  }
+
+  .close2:focus, .close2:hover {
+    color: white;
+    text-decoration-color: #BF5C97;
+}

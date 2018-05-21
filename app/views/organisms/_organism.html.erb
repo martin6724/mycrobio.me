@@ -3,8 +3,10 @@
   <!-- <h1><%#= @organ_system.name.capitalize %> Flora</h1> -->
 
   <%# @singleton_floras.each do |flora| %>
-   <h1 class="organism_header"> <%= organism.name.capitalize %> </h1>
+   <h1 class="organism_header"> Antibiotics for <%= organism.name.capitalize %> </h1>
   <%# end %>
+  <p class="instructions">Efficacy is a relative measure of effectiveness for an antibiotic against <%= organism.name.capitalize %>. Explore the most efficacious treatments of this bacteria here:</p>
+ <p class="fineprint">This information is designed for reference, and is not intended to replace professional medical advice.</p>
 
   <p><%= render 'efficacies/efficacy' %> </p>
 

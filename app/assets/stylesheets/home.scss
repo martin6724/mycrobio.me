@@ -43,3 +43,15 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
+
+.modal-dialog {
+  width: 500em;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+.modal-footer {
+  border-top: 0;
+}
