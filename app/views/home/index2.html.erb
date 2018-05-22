@@ -1,6 +1,7 @@
-<html lang="en">
-
+<html>
 <head>
+
+
   <title>MycrobioMe</title>
 
 
@@ -23,14 +24,29 @@
      background-color:transparent !important;
  }
 
- </style>
+  /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+ .btn-primary {background: #2e353d !important; border: #2e353d !important ;}
+ .btn {
+   padding: 2.7% 0;
+ }
+ .responsive-width {
+   font-size: 1.7vw;
+ }
+ .navbar-inner {
+     background-color:transparent !important;
+ }
+</style>
 
 </head>
 
   <body class="bg">
 
+<<<<<<< HEAD
 
   <%= render "navbar" %>
+=======
+  <%= render "home/navbar" %>
+>>>>>>> 59004f18344078078403e9c043bf3672297416ff
     <!-- Page Content -->
     <!-- Intro Text -->
 
@@ -39,6 +55,7 @@
   <h2>in the human microbiome</h2>
 </div>
 
+    <div id="modal-container"></div>
+    <div id="search-container"></div>
   </body>
-
-</html>
+  </html>

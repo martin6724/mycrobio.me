@@ -1,2 +1,22 @@
 $('#search-container').empty().html( "<%= j render partial: 'search_results' %>" );
 $('#exampleModal').modal('toggle');
+
+
+
+$(".btn.btn-secondary").click(function() {
+  $('#exampleModal').modal('hide');
+  $('body').removeClass('modal-open');
+  $('.modal-backdrop').remove();
+  });
+
+  $(".close").click(function() {
+    $('#exampleModal').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+});
+
+$(".close").click(function () {
+  $('#exampleModal').modal('hide');
+  $('body').removeClass('modal-open');
+  $('.modal-backdrop').remove();
+});

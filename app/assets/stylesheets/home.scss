@@ -50,11 +50,14 @@
   animation-name: fadeIn;
 }
 
-
+.modal-container {
+  max-width: 750px;
+  color: white;
+}
 
 
 .modal-dialog {
-  width: 500em;
+  max-width: 750px;
 }
 
 .modal-title {
@@ -63,6 +66,12 @@
 
 .modal-footer {
   border-top: 0;
+
+
+}
+.organism_search_list1 {
+  margin-left: 5em;
+  margin-right: 5em;
 }
 
 
