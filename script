@@ -1,0 +1,1 @@
+heroku config:add DATABASE_URL=mysql2://tereza:ajhxx6xGzYdlh0N6@dokku-hosted.thruhere.net:8332/tereza_abx_picker
