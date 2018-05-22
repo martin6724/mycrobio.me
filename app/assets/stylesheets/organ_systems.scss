@@ -102,11 +102,12 @@
   button.close2 {
     background-color:  #ab4b84 !important;
     // color: white;
-    border: 0;
-    border-color: transparent;
+
+    border-color: white;
+    color: white;
   }
 
   .close2:focus, .close2:hover {
-    color: white;
+    border-color: lightblue;
     text-decoration-color: #BF5C97;
 }

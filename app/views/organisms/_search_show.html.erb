@@ -1,5 +1,5 @@
 <% @organism.floras.includes(:organ_system, :efficacies).each do |flora| %>
-  <div class="search_results" style="width: 45%; background-color: lightblue; display: inline-block;">
+  <div class="search_results" style="width: 45%; display: inline-block;">
 
     <h4><%= flora.organ_system.name.capitalize %></h4>
     <% flora.efficacies.where.not(rating: nil).order(rating: :desc).each do |efficacy| %>

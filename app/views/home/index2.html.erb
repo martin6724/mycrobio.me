@@ -1,6 +1,7 @@
-<html lang="en">
-
+<html>
 <head>
+
+
   <title>MycrobioMe</title>
 
 
@@ -23,13 +24,24 @@
      background-color:transparent !important;
  }
 
- </style>
+  /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+ .btn-primary {background: #2e353d !important; border: #2e353d !important ;}
+ .btn {
+   padding: 2.7% 0;
+ }
+ .responsive-width {
+   font-size: 1.7vw;
+ }
+ .navbar-inner {
+     background-color:transparent !important;
+ }
+</style>
 
 </head>
 
   <body class="bg">
 
-  <%= render "navbar" %>
+  <%= render "home/navbar" %>
     <!-- Page Content -->
     <!-- Intro Text -->
 <div class="container text-center">
@@ -44,6 +56,7 @@
     </svg>
     </div>
 
+    <div id="modal-container"></div>
+    <div id="search-container"></div>
   </body>
-
-</html>
+  </html>

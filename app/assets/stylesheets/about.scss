@@ -4,3 +4,23 @@ body {
   height: 100%;
   color: white;
 }
+
+.zebra {
+  background: #06143B;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.zebra a {
+  color: white;
+  text-decoration: none;
+}
+
+.zebra .modal-header, .zebra .modal-footer {
+  border: none;
+}
+
+.modal-dialog {
+  width: 800px;
+}
