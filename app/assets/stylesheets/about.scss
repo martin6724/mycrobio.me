@@ -10,6 +10,7 @@ body {
   width: 100%;
   height: 100%;
   color: white;
+
 }
 
 .zebra a {
@@ -21,6 +22,14 @@ body {
   border: none;
 }
 
-.modal-dialog {
-  width: 800px;
+.zebra.modal-dialog {
+max-width: 800px;
+}
+
+.zebra .btn.btn-secondary {
+  padding: .3px;
+}
+
+.zebra a:hover {
+  color: lightblue;
 }

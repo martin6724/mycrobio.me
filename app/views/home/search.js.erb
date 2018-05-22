@@ -14,3 +14,9 @@ $(".btn.btn-secondary").click(function() {
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
 });
+
+$(".close").click(function () {
+  $('#exampleModal').modal('hide');
+  $('body').removeClass('modal-open');
+  $('.modal-backdrop').remove();
+});
