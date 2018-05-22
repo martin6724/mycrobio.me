@@ -5,7 +5,7 @@
 // // ****** Styling Background ***** //
 // body { background: #eef5fb !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 .bg {
-  background-image: url(<%= /assets/home-page.jpg %>);
+  background-image: url(<%= asset_data_uri 'home-page.jpg' %>));
   background-repeat:no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
