@@ -7,14 +7,3 @@
 // }
 
 // Wrap every letter in a span
-$(function() {
-  $('.intro').addClass('go');
-
-  $('.reload').click(function() {
-    $('.intro').removeClass('go').delay(200).queue(function(next) {
-      $('.intro').addClass('go');
-      next();
-    });
-
-  });
-})
