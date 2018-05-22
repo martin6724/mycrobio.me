@@ -48,7 +48,7 @@ $("#genitalia").on("click", function(e) {
 
 $("#skin").on("click", function(e) {
   e.preventDefault();
-  human.send("camera.set", { objectId: "human_05_male_integumentary_system-integumentary_system_ID", animate: true });
+  human.send("camera.set", { objectId: "human_05_male_integumentary_system-skin_of_torso_ID", animate: true });
 });
 
 
@@ -92,7 +92,7 @@ $("#fgenitalia").on("click", function(e) {
 
 $("#fskin").on("click", function(e) {
   e.preventDefault();
-  female.send("camera.set", { objectId: "human_05_female_integumentary_system-integumentary_system_ID", animate: true });
+  female.send("camera.set", { objectId: "human_05_female_integumentary_system-skin_of_torso_ID", animate: true });
 });
 
 
