@@ -10,28 +10,36 @@
         <button type="button" class="close" id="closeit" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-
+      </div>
 <!-- "data-toggle" => "modal" -->
 
-      </div>
+
 
       <div class="modal-body">
         <h1><%= @organ_system.name.titleize %> Flora</h1>
         <p>Click on an organism to browse antibiotics and efficacy ratings.</p>
 
-        <div class="flora_results">
-          <% @organisms.each do |organism| %>
+        <div class="container flora_results">
+          <div class="row">
 
-             <%= image_tag "https://agile-eyrie-52775.herokuapp.com/thumb_#{organism.name.gsub(' ', '_')}.jpg" %>
+
+
+          <% @organisms.each do |organism| %>
+          <div class="col-lg">
+             <%= image_tag "https://agile-eyrie-52775.herokuapp.com/large_#{organism.name.gsub(' ', '_')}.jpg" %>
         <p>  <%= link_to organism.name.capitalize, organism_path(id: organism.id, organ_system_id: @organ_system.id), remote: true %> <p>
+          </div>
           <% end %>
-        </div>
+
+      </div>
+    </div>
 
         <button type="button" class="close2" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">close</span>
         </button>
 
-    </div>
+      </div>
   </div>
+
 </div>
 </div>

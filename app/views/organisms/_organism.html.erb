@@ -5,6 +5,7 @@
   <%# @singleton_floras.each do |flora| %>
    <h1 class="organism_header"> Antibiotics for <%= organism.name.capitalize %> </h1>
   <%# end %>
+
   <%= image_tag "https://agile-eyrie-52775.herokuapp.com/large_#{organism.name.gsub(' ', '_')}.jpg" %>
   <p class="instructions">Efficacy is a relative measure of effectiveness for an antibiotic against <%= organism.name.capitalize %>. Explore the most efficacious treatments of this bacteria here:</p>
  <p class="fineprint">This information is designed for reference, and is not intended to replace professional medical advice.</p>
