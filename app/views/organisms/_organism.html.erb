@@ -8,7 +8,8 @@
 
   <%= image_tag "https://agile-eyrie-52775.herokuapp.com/large_#{organism.name.gsub(' ', '_')}.jpg" %>
   <p class="instructions">Efficacy is a relative measure of effectiveness for an antibiotic against <%= organism.name.capitalize %>. Explore the most efficacious treatments of this bacteria here:</p>
- <p class="fineprint">This information is designed for reference, and is not intended to replace professional medical advice.</p>
+
+ 
 
   <p><%= render 'efficacies/efficacy' %> </p>
 
